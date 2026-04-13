@@ -1,0 +1,34 @@
+{# HERO — slide 1 style: heading #ff9276 on #eeeeee background #}
+<section class="hero" aria-label="Hero">
+  <div class="hero__body">
+    <span class="hero__line">Next generation</span>
+
+    {# Animated line — cycles through the PDF's listed verticals #}
+    <span class="hero__line hero__line--animated" aria-live="polite" aria-label="Bank offices">
+      <span class="hero__anim-word hero__anim-word--visible" data-anim-word>Bank offices</span>
+      <span class="hero__anim-word" data-anim-word>Stores</span>
+      <span class="hero__anim-word" data-anim-word>Hotel receptions</span>
+    </span>
+
+    <p class="hero__desc">
+      A broad software portfolio for smarter customer interactions 
+      — from our patented Duo Input technology to AI-powered fraud 
+      detection. Built for banks, retail chains, and hotels.
+    </p>
+
+    {# Per Elina: two buttons directing to Banks or Retail/Hotels, not a generic pilot CTA #}
+    <div class="hero__actions">
+      <a href="#banks"    class="btn--banks">For Banks →</a>
+      <a href="#retail"   class="btn--retail">For Retail &amp; Hotels →</a>
+      <a href="#hardware" class="btn--outline">Explore Hardware</a>
+    </div>
+
+    {# Updated per Elina's feedback #}
+    <div class="hero__trust" aria-label="Key facts">
+      <div class="trust-pill">No system changes required</div>
+      <div class="trust-pill">Since 2009</div>
+      <div class="trust-pill">Software for 20+ countries</div>
+      <div class="trust-pill">Pilot live in 8–12 weeks</div>
+    </div>
+  </div>
+</section>
