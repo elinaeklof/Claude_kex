@@ -311,9 +311,112 @@
   margin-top: -40px;
 }
 
+.duo-input-section__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.duo-input-section__lead {
+  font-size: 15px;
+  color: var(--text-body);
+  line-height: 1.65;
+  margin: 14px 0 20px;
+}
+
+.duo-input-section__lead strong {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.duo-input-section__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.duo-input-section__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-body);
+  line-height: 1.55;
+}
+
+.duo-input-section__check {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  background: var(--coral);
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+.duo-input-section__patent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 10px 14px;
+  background: rgba(255, 146, 118, 0.08);
+  border-left: 3px solid var(--coral);
+  border-radius: 0 4px 4px 0;
+}
+
+.duo-input-section__patent-badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: var(--coral);
+  color: var(--white);
+  padding: 3px 7px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.duo-input-section__image-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.duo-input-section__image {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.10));
+}
+
+.duo-input-section__caption {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .duo-input-section__inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
 
 
-
+  .duo-input-section__image-wrap {
+    order: -1;
+  }
+}
 
   /* TABS */
   .tabs { 
@@ -351,7 +454,7 @@
 
   /* PROBLEM STATS */
   .problem-stat {
-    background: var(--bg-light);
+    background: var(--white);
     border-left: 4px solid var(--coral);
     padding: 16px 20px;
     margin-bottom: 12px;
