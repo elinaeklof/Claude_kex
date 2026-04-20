@@ -140,6 +140,11 @@
     max-width: 540px;
     line-height: 1.65;
   }
+
+  .typewriter {
+  white-space: pre-line;
+}
+
   .hero__actions {
     margin-top: 28px;
     display: flex;

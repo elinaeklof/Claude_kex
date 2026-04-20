@@ -40,37 +40,147 @@
 
 <section class="hero" aria-label="Hero">
   <div class="hero__body">
-    <span class="hero__line">Next generation</span>
 
     
-    <span class="hero__line hero__line--animated" aria-live="polite" aria-label="Bank offices">
-      <span class="hero__anim-word hero__anim-word--visible" data-anim-word>Bank offices</span>
-      <span class="hero__anim-word" data-anim-word>Stores</span>
-      <span class="hero__anim-word" data-anim-word>Hotel receptions</span>
+    <span class="hero__line" aria-label="Next generation">
+      <span class="typewriter" id="tw-line1" aria-hidden="true"></span>
+      <span class="typewriter__cursor" id="tw-cursor" aria-hidden="true">|</span>
     </span>
 
-    <p class="hero__desc">
-      A broad software portfolio for smarter customer interactions 
-      — from our patented Duo Input technology to AI-powered fraud 
+    
+    <span
+      class="hero__line hero__line--animated"
+      id="hero-animated-line"
+      aria-live="polite"
+      aria-label="Bank offices"
+      style="opacity: 0; transition: opacity 0.5s ease;">
+    </span>
+
+    <p
+      class="hero__desc"
+      id="hero-desc"
+      style="opacity: 0; transform: translateY(10px); transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;"
+    >
+      A broad software portfolio for smarter customer interactions
+      — from our patented Duo Input technology to AI-powered fraud
       detection. Built for banks, retail chains, and hotels.
     </p>
 
-    
-    <div class="hero__actions">
+    <div
+      class="hero__actions"
+      id="hero-actions"
+      style="opacity: 0; transform: translateY(10px); transition: opacity 0.5s ease 0.35s, transform 0.5s ease 0.35s;"
+    >
       <a href="#banks"    class="btn--banks">For Banks →</a>
       <a href="#retail"   class="btn--retail">For Retail &amp; Hotels →</a>
       <a href="#hardware" class="btn--outline">Explore Hardware</a>
     </div>
 
-    
-    <div class="hero__trust" aria-label="Key facts">
+    <div
+      class="hero__trust"
+      id="hero-trust"
+      aria-label="Key facts"
+      style="opacity: 0; transform: translateY(10px); transition: opacity 0.5s ease 0.5s, transform 0.5s ease 0.5s;"
+    >
       <div class="trust-pill">No system changes required</div>
       <div class="trust-pill">Since 2009</div>
       <div class="trust-pill">Software for 20+ countries</div>
       <div class="trust-pill">Pilot live in 8–12 weeks</div>
     </div>
+
   </div>
 </section>
+
+<style>
+  /* Blinkande markör */
+  .typewriter__cursor {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: clamp(52px, 7.5vw, 90px);
+    line-height: 0.9;
+    color: var(--coral);
+    animation: blink 0.7s step-end infinite;
+    margin-left: 2px;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+
+  /* Markören försvinner när allt är klart */
+  .typewriter__cursor--done {
+    animation: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+</style>
+
+<script>
+  (function () {
+    var line1El   = document.getElementById('tw-line1');
+    var cursorEl  = document.getElementById('tw-cursor');
+    var animLine  = document.getElementById('hero-animated-line');
+    var descEl    = document.getElementById('hero-desc');
+    var actionsEl = document.getElementById('hero-actions');
+    var trustEl   = document.getElementById('hero-trust');
+
+    var text  = 'Next generation\n' + 'bank offices,\n' + 'stores &\n' + 'hotel receptions ';  /* ← Ändra rubriken här */
+    var speed = 68;                 /* ms per tecken — lägre = snabbare */
+    var i     = 0;
+
+    /* Skriv ett tecken i taget */
+    function type() {
+      if (i < text.length) {
+        line1El.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, speed);
+      } else {
+        /* Klart — ta bort markören och visa resten */
+        cursorEl.classList.add('typewriter__cursor--done');
+
+        /* Visa animerade ord-rad */
+        animLine.style.opacity = '1';
+
+        /* Starta ord-animation (återanvänder samma loop som main.js) */
+        startWordAnimation();
+
+        /* Fade in resten av hero-innehållet */
+        descEl.style.opacity    = '1';
+        descEl.style.transform  = 'translateY(0)';
+        actionsEl.style.opacity = '1';
+        actionsEl.style.transform = 'translateY(0)';
+        trustEl.style.opacity   = '1';
+        trustEl.style.transform = 'translateY(0)';
+      }
+    }
+
+    /* Starta typewriter direkt när DOM är redo */
+    type();
+
+    /* ── Ord-animation (fristående, startar efter typewriter) ── */
+    function startWordAnimation() {
+      var words   = animLine.querySelectorAll('[data-anim-word]');
+      var current = 0;
+
+      /* Första ordet är redan synligt via hero__anim-word--visible */
+      setInterval(function () {
+        words[current].classList.remove('hero__anim-word--visible');
+        words[current].classList.add('hero__anim-word--exit');
+
+        var prev = current;
+        setTimeout(function () {
+          words[prev].classList.remove('hero__anim-word--exit');
+        }, 380);
+
+        current = (current + 1) % words.length;
+        words[current].classList.add('hero__anim-word--visible');
+      }, 2200);
+    }
+  }());
+</script>
+
 
 <div class="stat-bar" aria-label="Key statistics">
   <div class="stat-bar__item">
