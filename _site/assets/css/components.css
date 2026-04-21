@@ -107,6 +107,7 @@
     max-width: 100%;
   }
 
+
   .typewriter {
   display: inline-block;
   white-space: pre-line;
@@ -160,13 +161,34 @@
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
 }
+  .hero__eyebrow {
+  font-family: 'Barlow', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeSlideUp 0.6s ease 0.1s forwards;
+}
+  .hero__subline {
+      font-size: 15px;
+      color: var(--text-body);
+      max-width: 540px;
+      margin-top: 28px;
+      display: block;
+      font-weight: 600;
+    }
+
   .hero__desc {
-    margin-top: 28px;
+    margin-top: 0px;
     font-size: 15px;
     color: var(--text-body);
     max-width: 540px;
     line-height: 1.65;
   }
+
   .hero__actions {
     margin-top: 28px;
     display: flex;
