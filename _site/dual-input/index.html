@@ -38,147 +38,177 @@
 </nav>
 
 
-<section class="hero" aria-label="Hero">
+<section class="section" aria-label="Hero">
   <div class="hero__body">
+    <span class="hero__line">Next generation</span>
 
     
-    <span class="hero__line" aria-label="Next generation">
-      <span class="typewriter" id="tw-line1" aria-hidden="true"></span>
-      <span class="typewriter__cursor" id="tw-cursor" aria-hidden="true">|</span>
-    </span>
+    <span class="hero__line hero__line-tw" aria-live="polite" aria-label="Animated verticals">
+  <span id="tw-text" class="hero__tw-text"></span>
+  <span id="tw-cursor" class="hero__tw-cursor">|</span>
+</span>
 
-    
-    <span
-      class="hero__line hero__line--animated"
-      id="hero-animated-line"
-      aria-live="polite"
-      aria-label="Bank offices"
-      style="opacity: 0; transition: opacity 0.5s ease;">
-    </span>
-
-    <p
-      class="hero__desc"
-      id="hero-desc"
-      style="opacity: 0; transform: translateY(10px); transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;"
-    >
-      A broad software portfolio for smarter customer interactions
-      — from our patented Duo Input technology to AI-powered fraud
+    <p class="hero__desc">
+      A broad software portfolio for smarter customer interactions 
+      — from our patented Duo Input technology to AI-powered fraud 
       detection. Built for banks, retail chains, and hotels.
     </p>
 
-    <div
-      class="hero__actions"
-      id="hero-actions"
-      style="opacity: 0; transform: translateY(10px); transition: opacity 0.5s ease 0.35s, transform 0.5s ease 0.35s;"
-    >
+    
+    <div class="hero__actions">
       <a href="#banks"    class="btn--banks">For Banks →</a>
       <a href="#retail"   class="btn--retail">For Retail &amp; Hotels →</a>
       <a href="#hardware" class="btn--outline">Explore Hardware</a>
     </div>
 
-    <div
-      class="hero__trust"
-      id="hero-trust"
-      aria-label="Key facts"
-      style="opacity: 0; transform: translateY(10px); transition: opacity 0.5s ease 0.5s, transform 0.5s ease 0.5s;"
-    >
+    
+    <div class="hero__trust" aria-label="Key facts">
       <div class="trust-pill">No system changes required</div>
       <div class="trust-pill">Since 2009</div>
       <div class="trust-pill">Software for 20+ countries</div>
       <div class="trust-pill">Pilot live in 8–12 weeks</div>
     </div>
-
+  </div>
   </div>
 </section>
 
+
 <style>
-  /* Blinkande markör */
-  .typewriter__cursor {
-    display: inline-block;
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    font-size: clamp(52px, 7.5vw, 90px);
-    line-height: 0.9;
-    color: var(--coral);
-    animation: blink 0.7s step-end infinite;
-    margin-left: 2px;
-  }
+/* ── FADE-SLIDE-UP KEYFRAME ── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0; }
-  }
-
-  /* Markören försvinner när allt är klart */
-  .typewriter__cursor--done {
-    animation: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
+/* ── RESPONSIV ── */
+@media (max-width: 768px) {
+  .hero        { padding: 60px 24px; min-height: 85vh; }
+  .hero__desc  { font-size: 14px; }
+  .hero__actions { gap: 10px; }
+  .btn--primary, .btn--ghost { padding: 12px 20px; font-size: 12px; }
+}
 </style>
 
 <script>
-  (function () {
-    var line1El   = document.getElementById('tw-line1');
-    var cursorEl  = document.getElementById('tw-cursor');
-    var animLine  = document.getElementById('hero-animated-line');
-    var descEl    = document.getElementById('hero-desc');
-    var actionsEl = document.getElementById('hero-actions');
-    var trustEl   = document.getElementById('hero-trust');
+(function () {
+  /* ── 1. TYPEWRITER LOOP ─────────────────────────────
+     Väntar på att fonten är redo (document.fonts.ready)
+     så att det inte hackar vid första render.
+     Sekvens: STORES → HOTELS → BANK OFFICES → (loop)
+     ─────────────────────────────────────────────────── */
+  var words = [
+    'Stores',
+    'Hotels',
+    'Bank offices'
+  ];
 
-    var text  = 'Next generation\n' + 'bank offices,\n' + 'stores &\n' + 'hotel receptions ';  /* ← Ändra rubriken här */
-    var speed = 68;                 /* ms per tecken — lägre = snabbare */
-    var i     = 0;
+  var typeSpeed   = 72;   /* ms per tecken vid skrivning */
+  var deleteSpeed = 38;   /* ms per tecken vid radering  */
+  var pauseAfter  = 1600; /* ms att vänta när ordet är skrivet */
+  var pauseBefore = 280;  /* ms att vänta innan nästa ord börjar */
 
-    /* Skriv ett tecken i taget */
-    function type() {
-      if (i < text.length) {
-        line1El.textContent += text.charAt(i);
-        i++;
-        setTimeout(type, speed);
-      } else {
-        /* Klart — ta bort markören och visa resten */
-        cursorEl.classList.add('typewriter__cursor--done');
+  var textEl   = document.getElementById('tw-text');
+  var cursorEl = document.getElementById('tw-cursor');
+  var wordIdx  = 0;
+  var charIdx  = 0;
+  var deleting = false;
 
-        /* Visa animerade ord-rad */
-        animLine.style.opacity = '1';
+  function tick() {
+    var current = words[wordIdx];
 
-        /* Starta ord-animation (återanvänder samma loop som main.js) */
-        startWordAnimation();
+    if (!deleting) {
+      /* Skriv ett tecken */
+      charIdx++;
+      textEl.textContent = current.slice(0, charIdx);
 
-        /* Fade in resten av hero-innehållet */
-        descEl.style.opacity    = '1';
-        descEl.style.transform  = 'translateY(0)';
-        actionsEl.style.opacity = '1';
-        actionsEl.style.transform = 'translateY(0)';
-        trustEl.style.opacity   = '1';
-        trustEl.style.transform = 'translateY(0)';
+      if (charIdx === current.length) {
+        /* Ordet är klart — pausa innan radering */
+        setTimeout(function () {
+          deleting = true;
+          tick();
+        }, pauseAfter);
+        return;
+      }
+    } else {
+      /* Radera ett tecken */
+      charIdx--;
+      textEl.textContent = current.slice(0, charIdx);
+
+      if (charIdx === 0) {
+        /* Ordet är raderat — nästa ord */
+        deleting = false;
+        wordIdx  = (wordIdx + 1) % words.length;
+        setTimeout(tick, pauseBefore);
+        return;
       }
     }
 
-    /* Starta typewriter direkt när DOM är redo */
-    type();
+    setTimeout(tick, deleting ? deleteSpeed : typeSpeed);
+  }
 
-    /* ── Ord-animation (fristående, startar efter typewriter) ── */
-    function startWordAnimation() {
-      var words   = animLine.querySelectorAll('[data-anim-word]');
-      var current = 0;
+  /* Vänta tills fonten är redo → inga hackningar */
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () { tick(); });
+  } else {
+    /* Fallback för äldre webbläsare */
+    setTimeout(tick, 400);
+  }
 
-      /* Första ordet är redan synligt via hero__anim-word--visible */
-      setInterval(function () {
-        words[current].classList.remove('hero__anim-word--visible');
-        words[current].classList.add('hero__anim-word--exit');
+  /* ── 2. PARTIKELCANVAS ──────────────────────────────
+     Subtila coral-färgade punkter som rör sig långsamt.
+     Matchar ID24:s färgpalett, inte matrix-grejen.
+     ─────────────────────────────────────────────────── */
+  var canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
 
-        var prev = current;
-        setTimeout(function () {
-          words[prev].classList.remove('hero__anim-word--exit');
-        }, 380);
+  function resize() {
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
 
-        current = (current + 1) % words.length;
-        words[current].classList.add('hero__anim-word--visible');
-      }, 2200);
-    }
-  }());
+  /* Skapa partiklar */
+  var count = Math.floor((canvas.width * canvas.height) / 14000);
+  count = Math.min(Math.max(count, 30), 90);
+
+  var particles = [];
+  for (var i = 0; i < count; i++) {
+    particles.push({
+      x:    Math.random() * canvas.width,
+      y:    Math.random() * canvas.height,
+      r:    Math.random() * 1.4 + 0.4,
+      dx:   (Math.random() - 0.5) * 0.35,
+      dy:   (Math.random() - 0.5) * 0.35,
+      alpha: Math.random() * 0.5 + 0.15
+    });
+  }
+
+  function drawParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach(function (p) {
+      /* Rita partikel */
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255, 146, 118, ' + p.alpha + ')';
+      ctx.fill();
+
+      /* Flytta */
+      p.x += p.dx;
+      p.y += p.dy;
+
+      /* Studsa vid kanter */
+      if (p.x < 0 || p.x > canvas.width)  p.dx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+    });
+
+    requestAnimationFrame(drawParticles);
+  }
+
+  drawParticles();
+}());
 </script>
 
 
