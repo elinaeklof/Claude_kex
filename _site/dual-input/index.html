@@ -112,6 +112,7 @@
   var wordIdx  = 0;
   var charIdx  = 0;
   var deleting = false;
+  var initialDelay = 700; 
 
   function tick() {
     var current = words[wordIdx];
@@ -148,10 +149,12 @@
 
   /* Vänta tills fonten är redo → inga hackningar */
   if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(function () { tick(); });
+    document.fonts.ready.then(function () { 
+      setTimeout(tick, initialDelay);
+    });
   } else {
     /* Fallback för äldre webbläsare */
-    setTimeout(tick, 400);
+    setTimeout(tick, initialDelay);
   }
 
   /* ── 2. PARTIKELCANVAS ──────────────────────────────
