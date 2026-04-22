@@ -1,5 +1,7 @@
 {# HERO — slide 1 style: heading #ff9276 on #eeeeee background #}
-<section class="section" aria-label="Hero">
+<section class="section hero" aria-label="Hero">
+  <div class="hero-kaleido"></div>
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero__body">
     <p class="hero__eyebrow">Patented software · Since 2009 · 20+ countries</p>
     <span class="hero__line">Next generation</span>
@@ -11,10 +13,8 @@
 </span>
 
 
-    <p class="hero__subline">A customer touch point has two sides. Finally, both of them work.</p>
-
     <p class="hero__desc">
-       For fifteen years, ID24 has pioneered customer-facing technology 
+       <strong> A customer touch point has two sides. Finally, both of them work.</strong> For fifteen years, ID24 has pioneered customer-facing technology 
        - for staff working stores, front desks and bank offices. We 
        re-invented anything from the paper form, customer display hardware 
        to fraud detection using AI.
@@ -32,7 +32,7 @@
       <div class="trust-pill">No system changes required</div>
       <div class="trust-pill">Pilot live in 8–12 weeks</div>
     </div>
-  </div>
+    </div>   
   </div>
 </section>
 
@@ -53,127 +53,3 @@
 }
 </style>
 
-<script>
-(function () {
-  /* ── 1. TYPEWRITER LOOP ─────────────────────────────
-     Väntar på att fonten är redo (document.fonts.ready)
-     så att det inte hackar vid första render.
-     Sekvens: STORES → HOTELS → BANK OFFICES → (loop)
-     ─────────────────────────────────────────────────── */
-  var words = [
-    'Stores',
-    'Hotels',
-    'Bank offices'
-  ];
-
-  var typeSpeed   = 72;   /* ms per tecken vid skrivning */
-  var deleteSpeed = 38;   /* ms per tecken vid radering  */
-  var pauseAfter  = 1600; /* ms att vänta när ordet är skrivet */
-  var pauseBefore = 280;  /* ms att vänta innan nästa ord börjar */
-
-  var textEl   = document.getElementById('tw-text');
-  var cursorEl = document.getElementById('tw-cursor');
-  var wordIdx  = 0;
-  var charIdx  = 0;
-  var deleting = false;
-  var initialDelay = 700; 
-
-  function tick() {
-    var current = words[wordIdx];
-
-    if (!deleting) {
-      /* Skriv ett tecken */
-      charIdx++;
-      textEl.textContent = current.slice(0, charIdx);
-
-      if (charIdx === current.length) {
-        /* Ordet är klart — pausa innan radering */
-        setTimeout(function () {
-          deleting = true;
-          tick();
-        }, pauseAfter);
-        return;
-      }
-    } else {
-      /* Radera ett tecken */
-      charIdx--;
-      textEl.textContent = current.slice(0, charIdx);
-
-      if (charIdx === 0) {
-        /* Ordet är raderat — nästa ord */
-        deleting = false;
-        wordIdx  = (wordIdx + 1) % words.length;
-        setTimeout(tick, pauseBefore);
-        return;
-      }
-    }
-
-    setTimeout(tick, deleting ? deleteSpeed : typeSpeed);
-  }
-
-  /* Vänta tills fonten är redo → inga hackningar */
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(function () { 
-      setTimeout(tick, initialDelay);
-    });
-  } else {
-    /* Fallback för äldre webbläsare */
-    setTimeout(tick, initialDelay);
-  }
-
-  /* ── 2. PARTIKELCANVAS ──────────────────────────────
-     Subtila coral-färgade punkter som rör sig långsamt.
-     Matchar ID24:s färgpalett, inte matrix-grejen.
-     ─────────────────────────────────────────────────── */
-  var canvas = document.getElementById('hero-canvas');
-  if (!canvas) return;
-  var ctx = canvas.getContext('2d');
-
-  function resize() {
-    canvas.width  = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  /* Skapa partiklar */
-  var count = Math.floor((canvas.width * canvas.height) / 14000);
-  count = Math.min(Math.max(count, 30), 90);
-
-  var particles = [];
-  for (var i = 0; i < count; i++) {
-    particles.push({
-      x:    Math.random() * canvas.width,
-      y:    Math.random() * canvas.height,
-      r:    Math.random() * 1.4 + 0.4,
-      dx:   (Math.random() - 0.5) * 0.35,
-      dy:   (Math.random() - 0.5) * 0.35,
-      alpha: Math.random() * 0.5 + 0.15
-    });
-  }
-
-  function drawParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    particles.forEach(function (p) {
-      /* Rita partikel */
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(255, 146, 118, ' + p.alpha + ')';
-      ctx.fill();
-
-      /* Flytta */
-      p.x += p.dx;
-      p.y += p.dy;
-
-      /* Studsa vid kanter */
-      if (p.x < 0 || p.x > canvas.width)  p.dx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-    });
-
-    requestAnimationFrame(drawParticles);
-  }
-
-  drawParticles();
-}());
-</script>

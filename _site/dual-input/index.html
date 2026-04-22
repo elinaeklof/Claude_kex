@@ -38,7 +38,9 @@
 </nav>
 
 
-<section class="section" aria-label="Hero">
+<section class="section hero" aria-label="Hero">
+  <div class="hero-kaleido"></div>
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero__body">
     <p class="hero__eyebrow">Patented software · Since 2009 · 20+ countries</p>
     <span class="hero__line">Next generation</span>
@@ -50,10 +52,8 @@
 </span>
 
 
-    <p class="hero__subline">A customer touch point has two sides. Finally, both of them work.</p>
-
     <p class="hero__desc">
-       For fifteen years, ID24 has pioneered customer-facing technology 
+       <strong> A customer touch point has two sides. Finally, both of them work.</strong> For fifteen years, ID24 has pioneered customer-facing technology 
        - for staff working stores, front desks and bank offices. We 
        re-invented anything from the paper form, customer display hardware 
        to fraud detection using AI.
@@ -71,7 +71,7 @@
       <div class="trust-pill">No system changes required</div>
       <div class="trust-pill">Pilot live in 8–12 weeks</div>
     </div>
-  </div>
+    </div>   
   </div>
 </section>
 
@@ -92,130 +92,6 @@
 }
 </style>
 
-<script>
-(function () {
-  /* ── 1. TYPEWRITER LOOP ─────────────────────────────
-     Väntar på att fonten är redo (document.fonts.ready)
-     så att det inte hackar vid första render.
-     Sekvens: STORES → HOTELS → BANK OFFICES → (loop)
-     ─────────────────────────────────────────────────── */
-  var words = [
-    'Stores',
-    'Hotels',
-    'Bank offices'
-  ];
-
-  var typeSpeed   = 72;   /* ms per tecken vid skrivning */
-  var deleteSpeed = 38;   /* ms per tecken vid radering  */
-  var pauseAfter  = 1600; /* ms att vänta när ordet är skrivet */
-  var pauseBefore = 280;  /* ms att vänta innan nästa ord börjar */
-
-  var textEl   = document.getElementById('tw-text');
-  var cursorEl = document.getElementById('tw-cursor');
-  var wordIdx  = 0;
-  var charIdx  = 0;
-  var deleting = false;
-  var initialDelay = 700; 
-
-  function tick() {
-    var current = words[wordIdx];
-
-    if (!deleting) {
-      /* Skriv ett tecken */
-      charIdx++;
-      textEl.textContent = current.slice(0, charIdx);
-
-      if (charIdx === current.length) {
-        /* Ordet är klart — pausa innan radering */
-        setTimeout(function () {
-          deleting = true;
-          tick();
-        }, pauseAfter);
-        return;
-      }
-    } else {
-      /* Radera ett tecken */
-      charIdx--;
-      textEl.textContent = current.slice(0, charIdx);
-
-      if (charIdx === 0) {
-        /* Ordet är raderat — nästa ord */
-        deleting = false;
-        wordIdx  = (wordIdx + 1) % words.length;
-        setTimeout(tick, pauseBefore);
-        return;
-      }
-    }
-
-    setTimeout(tick, deleting ? deleteSpeed : typeSpeed);
-  }
-
-  /* Vänta tills fonten är redo → inga hackningar */
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(function () { 
-      setTimeout(tick, initialDelay);
-    });
-  } else {
-    /* Fallback för äldre webbläsare */
-    setTimeout(tick, initialDelay);
-  }
-
-  /* ── 2. PARTIKELCANVAS ──────────────────────────────
-     Subtila coral-färgade punkter som rör sig långsamt.
-     Matchar ID24:s färgpalett, inte matrix-grejen.
-     ─────────────────────────────────────────────────── */
-  var canvas = document.getElementById('hero-canvas');
-  if (!canvas) return;
-  var ctx = canvas.getContext('2d');
-
-  function resize() {
-    canvas.width  = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  /* Skapa partiklar */
-  var count = Math.floor((canvas.width * canvas.height) / 14000);
-  count = Math.min(Math.max(count, 30), 90);
-
-  var particles = [];
-  for (var i = 0; i < count; i++) {
-    particles.push({
-      x:    Math.random() * canvas.width,
-      y:    Math.random() * canvas.height,
-      r:    Math.random() * 1.4 + 0.4,
-      dx:   (Math.random() - 0.5) * 0.35,
-      dy:   (Math.random() - 0.5) * 0.35,
-      alpha: Math.random() * 0.5 + 0.15
-    });
-  }
-
-  function drawParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    particles.forEach(function (p) {
-      /* Rita partikel */
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(255, 146, 118, ' + p.alpha + ')';
-      ctx.fill();
-
-      /* Flytta */
-      p.x += p.dx;
-      p.y += p.dy;
-
-      /* Studsa vid kanter */
-      if (p.x < 0 || p.x > canvas.width)  p.dx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-    });
-
-    requestAnimationFrame(drawParticles);
-  }
-
-  drawParticles();
-}());
-</script>
 
 
 <div class="stat-bar" aria-label="Key statistics">
@@ -236,25 +112,27 @@
     <div class="stat-bar__label">Country installations</div>
   </div>
 </div>
-<section class="section section--light duo-input-section">
-  <div class="section__inner duo-input-section__inner">
+<section class="section section--bg-light duo-input-section">
+  <div class="duo-input-section__inner">
 
     
     <div class="duo-input-section__text">
       <p class="section__label">Patented technology</p>
       <h2 class="section__title">Duo Input —<br>simultaneous interaction</h2>
-      <p class="duo-input-section__lead">
-        ID24's patented Duo Input technology allows the cashier and the customer to interact on
-        <strong>the same screen at the same time</strong> — without technical conflicts.
-      </p>
+
+      <div class="duo-input-section__intro">
+        <p class="duo-input-section__lead">
+          Duo Input™ is an ID24 patented software that enables true simultaneous touch input across multiple displays. Perfect for digital forms in a bank office, or a loyalty registration form in a store or hotel.
+        </p>
+      </div>
       <ul class="duo-input-section__list">
         <li>
           <span class="duo-input-section__check">✓</span>
-          The cashier can process the transaction while the customer fills in their email address or signs simultaneously
+          Two people can work on two screens at the same time, and it just works.
         </li>
         <li>
           <span class="duo-input-section__check">✓</span>
-          No back-and-forth — no rotating screens — no waiting
+          no cursor conflicts, no interruptions, no operating-system workarounds. 
         </li>
         <li>
           <span class="duo-input-section__check">✓</span>
@@ -272,21 +150,50 @@
     </div>
 
     
-    <div class="duo-input-section__image-wrap">
-      <img
-        src="/assets/img/duo-input-tablets.png"
-        alt="Duo Input — cashier and customer interact simultaneously on the same display"
-        class="duo-input-section__image"
-      >
-      <div class="duo-input-section__caption">
-        Two parties. One screen. Zero conflicts.
+<div class="duo-input-section__image-wrap">
+  <section class="signature-usecase-animation" aria-label="Duo Input signature workflow animation">
+
+    <div class="signature-screen signature-screen-form">
+      <p class="signature-screen-label">Display 1</p>
+      <div class="input-screen signature-input-screen">
+        <div class="screen-text signature-output" id="signatureUseCaseOutput"></div>
+      </div>
+      <p class="signature-context-note">Name confirmation</p>
+      <div class="signature-left-signature-line">
+        <svg class="signature-stroke signature-stroke-left" viewBox="0 0 360 130" role="img" aria-label="Animated staff signature">
+          <path d="M26 84 C42 38 82 35 75 78 C69 112 38 105 55 70 C74 31 108 52 116 83 C123 112 88 101 98 72 C111 39 142 71 157 82 C179 99 188 68 203 74 C226 84 240 86 258 78 C278 69 292 76 310 78 C327 80 340 76 350 78" />
+        </svg>
+      </div>
+      <p class="signature-caption signature-caption-left">Signature</p>
+      <div class="keys signature-keys" aria-label="Duo Input keyboard">
+        <button class="screen-button" data-signature-key="D">D</button>
+        <button class="screen-button" data-signature-key="U">U</button>
+        <button class="screen-button" data-signature-key="O">O</button>
+        <button class="screen-button key-wide" data-signature-key="BACKSPACE">DEL</button>
+        <button class="screen-button" data-signature-key="I">I</button>
+        <button class="screen-button" data-signature-key="N">N</button>
+        <button class="screen-button" data-signature-key="P">P</button>
+        <button class="screen-button" data-signature-key="U">U</button>
+        <button class="screen-button" data-signature-key="T">T</button>
+        <button class="screen-button key-blancspace" data-signature-key=" "></button>
       </div>
     </div>
+
+    <div class="signature-screen signature-screen-sign">
+      <p class="signature-screen-label">Display 2</p>
+      <svg class="signature-stroke signature-stroke-customer" viewBox="0 0 360 130" role="img" aria-label="Animated customer signature">
+        <path d="M26 84 C42 38 82 35 75 78 C69 112 38 105 55 70 C74 31 108 52 116 83 C123 112 88 101 98 72 C111 39 142 71 157 82 C179 99 188 68 203 74 C226 84 240 86 258 78 C278 69 292 76 310 78 C327 80 340 76 350 78" />
+      </svg>
+      <p class="signature-caption">Signature</p>
+    </div>
+
+  </section>
+</div>
 
   </div>
 </section>
  
-<section class="section section--bg-light" id="solutions">
+<section class="section section--white" id="solutions">
   <div class="section__inner">
     <p class="section__label">Market need</p>
 
@@ -624,7 +531,6 @@
     </div>
   </div>
 </section>
-
 <section class="section section--bg-light">
   <div class="section__inner">
     <p class="section__label">Patents &amp; protection</p>
@@ -635,15 +541,15 @@
     </p>
 
     <div class="card-grid">
-      <div class="card">
+      <div class="card-patents">
         <h4>Patent for simultaneous input</h4>
         <p>PRV application no. 2030154-5, classification G06F3/0488, G06F3/041 — "Apparatus and Method for Supporting Touch Input Events". Allows cashier and customer to interact simultaneously without technical conflicts.</p>
       </div>
-      <div class="card">
+      <div class="card-patents">
         <h4>EU design patent for helper buttons</h4>
         <p>Design patent for the helper-button keyboard makes collection of email addresses faster and more user-friendly — with one-tap domain shortcuts like @gmail.com and @hotmail.com.</p>
       </div>
-      <div class="card">
+      <div class="card-patents">
         <h4>Strengthened market position</h4>
         <p>Patented solutions and strong technical expertise position ID24 as a global player with lasting competitive advantages in the retail technology market.</p>
       </div>
@@ -814,7 +720,7 @@
       </div>
       <div class="award-pill">
         <div class="award-pill__icon" aria-hidden="true">★</div>
-        <span>irug Retail Innovation Award</span>
+        <span>IRUG Retail Innovation Award</span>
       </div>
       <div class="award-pill">
         <div class="award-pill__icon" aria-hidden="true">★</div>

@@ -1,22 +1,24 @@
-<section class="section section--light duo-input-section">
-  <div class="section__inner duo-input-section__inner">
+<section class="section section--bg-light duo-input-section">
+  <div class="duo-input-section__inner">
 
     {# TEXT — vänster #}
     <div class="duo-input-section__text">
       <p class="section__label">Patented technology</p>
       <h2 class="section__title">Duo Input —<br>simultaneous interaction</h2>
-      <p class="duo-input-section__lead">
-        ID24's patented Duo Input technology allows the cashier and the customer to interact on
-        <strong>the same screen at the same time</strong> — without technical conflicts.
-      </p>
+
+      <div class="duo-input-section__intro">
+        <p class="duo-input-section__lead">
+          Duo Input™ is an ID24 patented software that enables true simultaneous touch input across multiple displays. Perfect for digital forms in a bank office, or a loyalty registration form in a store or hotel.
+        </p>
+      </div>
       <ul class="duo-input-section__list">
         <li>
           <span class="duo-input-section__check">✓</span>
-          The cashier can process the transaction while the customer fills in their email address or signs simultaneously
+          Two people can work on two screens at the same time, and it just works.
         </li>
         <li>
           <span class="duo-input-section__check">✓</span>
-          No back-and-forth — no rotating screens — no waiting
+          no cursor conflicts, no interruptions, no operating-system workarounds. 
         </li>
         <li>
           <span class="duo-input-section__check">✓</span>
@@ -33,17 +35,46 @@
       </div>
     </div>
 
-    {# IMAGE — höger #}
-    <div class="duo-input-section__image-wrap">
-      <img
-        src="/assets/img/duo-input-tablets.png"
-        alt="Duo Input — cashier and customer interact simultaneously on the same display"
-        class="duo-input-section__image"
-      >
-      <div class="duo-input-section__caption">
-        Two parties. One screen. Zero conflicts.
+    {# ANIMATION — höger #}
+<div class="duo-input-section__image-wrap">
+  <section class="signature-usecase-animation" aria-label="Duo Input signature workflow animation">
+
+    <div class="signature-screen signature-screen-form">
+      <p class="signature-screen-label">Display 1</p>
+      <div class="input-screen signature-input-screen">
+        <div class="screen-text signature-output" id="signatureUseCaseOutput"></div>
+      </div>
+      <p class="signature-context-note">Name confirmation</p>
+      <div class="signature-left-signature-line">
+        <svg class="signature-stroke signature-stroke-left" viewBox="0 0 360 130" role="img" aria-label="Animated staff signature">
+          <path d="M26 84 C42 38 82 35 75 78 C69 112 38 105 55 70 C74 31 108 52 116 83 C123 112 88 101 98 72 C111 39 142 71 157 82 C179 99 188 68 203 74 C226 84 240 86 258 78 C278 69 292 76 310 78 C327 80 340 76 350 78" />
+        </svg>
+      </div>
+      <p class="signature-caption signature-caption-left">Signature</p>
+      <div class="keys signature-keys" aria-label="Duo Input keyboard">
+        <button class="screen-button" data-signature-key="D">D</button>
+        <button class="screen-button" data-signature-key="U">U</button>
+        <button class="screen-button" data-signature-key="O">O</button>
+        <button class="screen-button key-wide" data-signature-key="BACKSPACE">DEL</button>
+        <button class="screen-button" data-signature-key="I">I</button>
+        <button class="screen-button" data-signature-key="N">N</button>
+        <button class="screen-button" data-signature-key="P">P</button>
+        <button class="screen-button" data-signature-key="U">U</button>
+        <button class="screen-button" data-signature-key="T">T</button>
+        <button class="screen-button key-blancspace" data-signature-key=" "></button>
       </div>
     </div>
+
+    <div class="signature-screen signature-screen-sign">
+      <p class="signature-screen-label">Display 2</p>
+      <svg class="signature-stroke signature-stroke-customer" viewBox="0 0 360 130" role="img" aria-label="Animated customer signature">
+        <path d="M26 84 C42 38 82 35 75 78 C69 112 38 105 55 70 C74 31 108 52 116 83 C123 112 88 101 98 72 C111 39 142 71 157 82 C179 99 188 68 203 74 C226 84 240 86 258 78 C278 69 292 76 310 78 C327 80 340 76 350 78" />
+      </svg>
+      <p class="signature-caption">Signature</p>
+    </div>
+
+  </section>
+</div>
 
   </div>
 </section>

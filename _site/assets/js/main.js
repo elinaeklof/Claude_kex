@@ -103,3 +103,217 @@ function openTab(tabValue) {
     });
   });
 }());
+
+
+/* ─── Hero background ─── */
+(function () {
+  /* TYPEWRITER */
+  var words = ['Stores', 'Hotels', 'Bank offices'];
+  var typeSpeed = 72, deleteSpeed = 38, pauseAfter = 1600, pauseBefore = 280;
+  var textEl = document.getElementById('tw-text');
+  var wordIdx = 0, charIdx = 0, deleting = false;
+  function tick() {
+    var current = words[wordIdx];
+    if (!deleting) {
+      charIdx++;
+      textEl.textContent = current.slice(0, charIdx);
+      if (charIdx === current.length) { setTimeout(function () { deleting = true; tick(); }, pauseAfter); return; }
+    } else {
+      charIdx--;
+      textEl.textContent = current.slice(0, charIdx);
+      if (charIdx === 0) { deleting = false; wordIdx = (wordIdx + 1) % words.length; setTimeout(tick, pauseBefore); return; }
+    }
+    setTimeout(tick, deleting ? deleteSpeed : typeSpeed);
+  }
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(function () { setTimeout(tick, 700); }); } else { setTimeout(tick, 700); }
+
+  /* SHIMMER PARTICLES — coral dots that drift and pulse over the kaleidoscope */
+  var canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W, H, dots = [];
+
+  /* ID24 coral palette */
+  var COLORS = [
+    [255, 146, 118],  /* --coral       */
+    [248, 184, 152],  /* --coral-ghost  */
+    [251, 223, 209],  /* --coral-ghost-2*/
+    [224, 106,  80],  /* --coral-dark   */
+  ];
+
+  function rnd(a, b) { return a + Math.random() * (b - a); }
+
+  function mkDot() {
+    var c = COLORS[Math.floor(Math.random() * COLORS.length)];
+    return {
+      x:     rnd(0, W),
+      y:     rnd(0, H),
+      r:     rnd(1, 3.2),
+      vx:    rnd(-0.18, 0.18),
+      vy:    rnd(-0.22, 0.22),
+      alpha: rnd(0.08, 0.28),
+      phase: rnd(0, Math.PI * 2),
+      speed: rnd(0.4, 1.1),
+      c:     c
+    };
+  }
+
+  function rebuild() {
+    dots = [];
+    var n = Math.min(Math.max(Math.floor((W * H) / 10000), 40), 110);
+    for (var i = 0; i < n; i++) dots.push(mkDot());
+  }
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+    rebuild();
+  }
+
+  var t = 0;
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    t += 0.018;
+
+    dots.forEach(function (d) {
+      /* pulse alpha gently */
+      var a = d.alpha * (0.6 + 0.4 * Math.sin(t * d.speed + d.phase));
+
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + d.c[0] + ',' + d.c[1] + ',' + d.c[2] + ',' + a + ')';
+      ctx.fill();
+
+      d.x += d.vx;
+      d.y += d.vy;
+
+      /* wrap edges */
+      if (d.x < -4)  d.x = W + 4;
+      if (d.x > W+4) d.x = -4;
+      if (d.y < -4)  d.y = H + 4;
+      if (d.y > H+4) d.y = -4;
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  draw();
+}());
+
+
+(function () {
+  /* ── 1. TYPEWRITER LOOP ─────────────────────────────
+     Väntar på att fonten är redo (document.fonts.ready)
+     så att det inte hackar vid första render.
+     Sekvens: STORES → HOTELS → BANK OFFICES → (loop)
+     ─────────────────────────────────────────────────── */
+  var words = [
+    'Stores',
+    'Hotels',
+    'Bank offices'
+  ];
+
+  var typeSpeed   = 72;   /* ms per tecken vid skrivning */
+  var deleteSpeed = 38;   /* ms per tecken vid radering  */
+  var pauseAfter  = 1600; /* ms att vänta när ordet är skrivet */
+  var pauseBefore = 280;  /* ms att vänta innan nästa ord börjar */
+
+  var textEl   = document.getElementById('tw-text');
+  var cursorEl = document.getElementById('tw-cursor');
+  var wordIdx  = 0;
+  var charIdx  = 0;
+  var deleting = false;
+  var initialDelay = 700; 
+
+  function tick() {
+    var current = words[wordIdx];
+
+    if (!deleting) {
+      /* Skriv ett tecken */
+      charIdx++;
+      textEl.textContent = current.slice(0, charIdx);
+
+      if (charIdx === current.length) {
+        /* Ordet är klart — pausa innan radering */
+        setTimeout(function () {
+          deleting = true;
+          tick();
+        }, pauseAfter);
+        return;
+      }
+    } else {
+      /* Radera ett tecken */
+      charIdx--;
+      textEl.textContent = current.slice(0, charIdx);
+
+      if (charIdx === 0) {
+        /* Ordet är raderat — nästa ord */
+        deleting = false;
+        wordIdx  = (wordIdx + 1) % words.length;
+        setTimeout(tick, pauseBefore);
+        return;
+      }
+    }
+
+    setTimeout(tick, deleting ? deleteSpeed : typeSpeed);
+  }
+
+  /* Vänta tills fonten är redo → inga hackningar */
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () { 
+      setTimeout(tick, initialDelay);
+    });
+  } else {
+    /* Fallback för äldre webbläsare */
+    setTimeout(tick, initialDelay);
+  }
+}());
+
+//* ─── Duo Input signature animation ─── */
+(function () {
+  var keys   = document.querySelectorAll('[data-signature-key]');
+  var output = document.getElementById('signatureUseCaseOutput');
+  if (!keys.length || !output) return;
+
+  var text = '';
+  var seq  = [
+    'D','U','O',' ','I','N','P','U','T',
+    'BACKSPACE','BACKSPACE','BACKSPACE','BACKSPACE',
+    'BACKSPACE','BACKSPACE','BACKSPACE','BACKSPACE','BACKSPACE'
+  ];
+  var idx = 0;
+
+  function render() { output.textContent = text; }
+
+  function handleKey(val) {
+    if (val === 'BACKSPACE') { text = text.slice(0, -1); }
+    else { text += val; }
+    render();
+  }
+
+  function flashKey(val) {
+    var matches = document.querySelectorAll('[data-signature-key="' + val + '"]');
+    if (!matches.length) return;
+    var key = matches[Math.floor(Math.random() * matches.length)];
+    key.classList.add('pressed');
+    setTimeout(function () { key.classList.remove('pressed'); }, 150);
+  }
+
+  keys.forEach(function (key) {
+    key.addEventListener('click', function () {
+      handleKey(key.dataset.signatureKey);
+      key.classList.add('pressed');
+      setTimeout(function () { key.classList.remove('pressed'); }, 150);
+    });
+  });
+
+  setInterval(function () {
+    handleKey(seq[idx]);
+    flashKey(seq[idx]);
+    idx = (idx + 1) % seq.length;
+  }, 200);
+
+  render();
+}());
