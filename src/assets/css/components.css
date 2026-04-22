@@ -378,7 +378,7 @@
     max-width: 620px;
     margin-bottom: 32px;
   }
-  
+
   .section__lead--light { 
     color: rgba(255, 255, 255, 0.5); 
   }
@@ -1386,6 +1386,11 @@
     padding: 8px 14px;
   }
 
+  .award-pill:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
   .award-pill__icon {
     width: 22px;
     height: 22px;
@@ -1445,6 +1450,11 @@
     text-align: center;
     padding: 12px 6px;
     border-right: 1px solid rgba(255, 255, 255, 0.22);
+  }
+
+  .timeline__step:hover { 
+    transform: translateY(-4px); 
+    border-right-color: rgba(255, 255, 255, 0.4);
   }
 
   .timeline__step:last-child { 
