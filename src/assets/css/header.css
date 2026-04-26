@@ -1,0 +1,143 @@
+    .nav {
+    background: rgba(255,255,255,.58);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav__logo img {
+  height: 40px;
+  width: auto;
+  }
+
+  .nav__links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+
+  background: transparent;
+}
+
+  .nav__links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-body);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  padding: 8px 12px;
+  border-radius: 999px;
+
+  transition:
+    background .25s ease,
+    color .25s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+  
+  #nav-link:hover {
+    background: var(--bg-light);
+    transform: translateY(-4px);
+    
+  }
+
+  .nav__links a:hover {
+  background: rgba(255,255,255,.72);
+  color: var(--coral-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(26,26,46,.08);
+}
+
+.nav__links a:active {
+  transform: translateY(-1px) scale(.97);
+}
+
+  
+/* CTA behåller sin roll men får samma känsla */
+.nav__cta {
+  background: var(--coral-dark);
+  color: #fff !important;
+  box-shadow: 0 10px 24px rgba(224,106,80,.18);
+}
+
+.nav__cta:hover {
+  background: var(--coral-dark) !important;
+  color: #fff !important;
+  box-shadow: 0 14px 30px rgba(224,106,80,.24);
+}
+
+/* Hamburger */
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+
+.nav__hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--coral);
+  border-radius: 2px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav {
+  width: calc(100%);
+  max-width: 1180px;
+  margin: 12px auto 0;
+}
+
+  .nav__hamburger {
+    display: flex;
+  }
+
+  .nav__links {
+    display: none;
+  }
+
+  .nav__links--open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    right: 0;
+
+    padding: 18px;
+    gap: 10px;
+
+    border: 1px solid rgba(255,255,255,.7);
+    background: rgba(255,255,255,.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border-radius: 28px;
+    box-shadow: 0 16px 40px rgba(26,26,46,.08);
+  }
+
+  .nav__links a {
+    width: 100%;
+    padding: 12px 14px;
+  }
+}

@@ -1,0 +1,115 @@
+.fraud-panel {
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 42px;
+  padding: clamp(28px, 4vw, 56px);
+  min-height: 720px;
+
+  background:
+    radial-gradient(circle at 82% 12%, rgba(255, 133, 111, 0.16), transparent 28%),
+    linear-gradient(135deg, rgba(255,255,255,0.92), rgba(250,246,241,0.86));
+
+  border: 1px solid rgba(255,255,255,0.9);
+  box-shadow: 0 34px 100px rgba(26, 26, 46, 0.10);
+  color: var(--text-dark);
+}
+
+.fraud-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(26,26,46,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,26,46,0.035) 1px, transparent 1px);
+
+  background-size: 36px 36px;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,0.55), transparent 75%);
+  pointer-events: none;
+}
+
+.fraud-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.fraud-panel h3 {
+  margin: 28px 0 24px;
+  max-width: 760px;
+  color: var(--text-dark);
+  font-size: clamp(44px, 5vw, 76px);
+  line-height: 0.9;
+  letter-spacing: -0.08em;
+}
+
+.fraud-panel > p:not(.panel-eyebrow) {
+  max-width: 680px;
+  color: var(--text-body);
+  font-size: 20px;
+  line-height: 1.65;
+}
+
+.fraud-list {
+  margin-top: 44px;
+  display: grid;
+  gap: 16px;
+}
+
+.fraud-row {
+  display: grid;
+  grid-template-columns: 54px 1fr auto;
+  gap: 16px;
+  align-items: center;
+
+  padding: 20px;
+  border-radius: 22px;
+
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(26,26,46,0.07);
+  box-shadow: 0 14px 34px rgba(26,26,46,0.06);
+}
+
+.fraud-check {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+
+  display: grid;
+  place-items: center;
+
+  background: rgba(255,133,111,0.14);
+  color: var(--coral-dark);
+
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.fraud-row strong {
+  display: block;
+  margin-bottom: 4px;
+
+  color: var(--text-dark);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.fraud-row span {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.fraud-row em {
+  font-style: normal;
+  font-family: 'Barlow', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: var(--coral-dark);
+  background: rgba(255,133,111,0.12);
+  padding: 8px 10px;
+  border-radius: 999px;
+}

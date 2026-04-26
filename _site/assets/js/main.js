@@ -317,3 +317,26 @@ function openTab(tabValue) {
 
   render();
 }());
+
+
+(function () {
+  const devicePreview = document.querySelector('.device-preview');
+  const deviceLabel = document.getElementById('device-size-label');
+  const deviceButtons = document.querySelectorAll('.device-chip[data-size]');
+
+  if (!devicePreview || !deviceLabel || !deviceButtons.length) return;
+
+  devicePreview.dataset.size = '10';
+
+  deviceButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const size = button.dataset.size;
+
+      devicePreview.dataset.size = size;
+      deviceLabel.textContent = size + '”';
+
+      deviceButtons.forEach((btn) => btn.classList.remove('is-active'));
+      button.classList.add('is-active');
+    });
+  });
+})();

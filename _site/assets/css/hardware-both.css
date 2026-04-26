@@ -1,0 +1,238 @@
+.shared-platform {
+  padding: 96px 32px;
+  background:
+    radial-gradient(circle at 10% 8%, rgba(248, 184, 152, 0.32), transparent 24%),
+    radial-gradient(circle at 90% 10%, rgba(245, 200, 66, 0.12), transparent 22%),
+    linear-gradient(180deg, var(--bg-light), #f5f2ef);
+  position: relative;
+  overflow: hidden;
+}
+
+.shared-platform__eyebrow,
+.panel-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--coral-dark);
+}
+
+.shared-platform__eyebrow::before,
+.panel-eyebrow::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--coral-dark);
+  box-shadow: 0 0 0 9px rgba(224, 106, 80, 0.12);
+}
+
+.hardware-panel,
+.fraud-panel {
+  border-radius: 42px;
+  padding: clamp(28px, 4vw, 56px);
+  min-height: 720px;
+  box-shadow: 0 34px 100px rgba(26, 26, 46, 0.14);
+}
+
+.hardware-panel {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px);
+}
+
+.hardware-panel h3,
+.fraud-panel h3 {
+  margin: 28px 0 24px;
+  font-size: clamp(48px, 5.4vw, 86px);
+  line-height: 0.88;
+  letter-spacing: -0.08em;
+}
+
+.hardware-panel h3 {
+  color: var(--text-dark);
+}
+
+.hardware-panel > p:not(.panel-eyebrow),
+.fraud-panel > p:not(.panel-eyebrow) {
+  max-width: 680px;
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+.hardware-panel > p:not(.panel-eyebrow) {
+  color: var(--text-body);
+}
+
+.device-preview {
+  margin: 34px auto 24px;
+  width: min(84%, 620px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 320px;
+}
+
+.device-screen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 34px;
+  background:
+    linear-gradient(145deg, #2b2c45 0%, #141526 60%, #0c0d1a 100%);
+  border: 12px solid #2a2b46;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.28),
+    0 10px 30px rgba(0,0,0,0.18),
+    inset 0 2px 6px rgba(255,255,255,0.08),
+    inset 0 -30px 60px rgba(0,0,0,0.35);
+  transition:
+    width 0.35s ease,
+    max-width 0.35s ease,
+    aspect-ratio 0.35s ease,
+    border-radius 0.35s ease,
+    transform 0.35s ease;
+}
+
+.device-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255,255,255,0.18) 0%,
+      rgba(255,255,255,0.06) 20%,
+      transparent 40%
+    );
+
+  pointer-events: none;
+}
+
+.device-logo {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+
+  color: rgba(255,255,255,0.75);
+
+  /* subtil glow */
+  text-shadow: 0 0 18px rgba(255,133,111,0.25);
+}
+
+.device-size {
+  position: absolute;
+  right: 22px;
+  top: 18px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.48);
+}
+
+.device-preview[data-size="8"] .device-screen {
+  width: 58%;
+  aspect-ratio: 4 / 3;
+  border-radius: 26px;
+}
+
+.device-preview[data-size="10"] .device-screen {
+  width: 72%;
+  aspect-ratio: 4 / 3;
+  border-radius: 30px;
+}
+
+.device-preview[data-size="13.3"] .device-screen {
+  width: 88%;
+  aspect-ratio: 16 / 10;
+  border-radius: 34px;
+}
+
+.device-preview[data-size="15.6"] .device-screen {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 38px;
+}
+
+.device-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.device-chip {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 999px;
+  background: rgba(26, 26, 46, 0.06);
+  color: var(--text-muted);
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.device-chip:hover {
+  transform: translateY(-2px);
+}
+
+.device-chip.is-active {
+  background: var(--navy);
+  color: var(--white);
+}
+
+@media (max-width: 1100px) {
+  .shared-platform__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hardware-panel,
+  .fraud-panel {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .shared-platform {
+    padding: 64px 18px;
+  }
+
+  .hardware-panel,
+  .fraud-panel {
+    border-radius: 28px;
+    padding: 28px 22px;
+  }
+
+  .device-preview {
+    width: 100%;
+    min-height: 220px;
+  }
+
+  .device-screen {
+    border-width: 10px;
+  }
+
+  .fraud-row {
+    grid-template-columns: 44px 1fr;
+  }
+
+  .fraud-row em {
+    grid-column: 2;
+  }
+}
