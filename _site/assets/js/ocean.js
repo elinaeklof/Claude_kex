@@ -58,9 +58,32 @@ let loop = (timeStamp) => {
     postctx.canvas.height = canvas.height = postctx.canvas.offsetHeight
   }
 
-  // Clear with light background
-  c.fillStyle = '#eeeeee'
+  // Create linear gradient background
+  const linearGrad = c.createLinearGradient(0, 0, canvas.width, 0)
+  linearGrad.addColorStop(0, '#f7f2ef')
+  linearGrad.addColorStop(0.48, '#fbdfd1')
+  linearGrad.addColorStop(1, '#f7f2ef')
+  
+  c.fillStyle = linearGrad
   c.fillRect(0, 0, canvas.width, canvas.height)
+
+  // Create and apply radial gradient overlay
+  const radialGrad = c.createRadialGradient(
+    canvas.width * 0.78,
+    canvas.height * 0.72,
+    0,
+    canvas.width * 0.78,
+    canvas.height * 0.72,
+    Math.max(canvas.width, canvas.height) * 0.34
+  )
+  radialGrad.addColorStop(0, 'rgba(255, 146, 118, 0.28)')
+  radialGrad.addColorStop(1, 'rgba(255, 146, 118, 0)')
+
+  c.globalCompositeOperation = 'multiply'
+  c.fillStyle = radialGrad
+  c.fillRect(0, 0, canvas.width, canvas.height)
+  c.globalCompositeOperation = 'source-over'
+
   c.save()
   c.translate(canvas.width / 2, canvas.height / 2)
 
