@@ -1,115 +1,235 @@
-.fraud-panel {
-  position: relative;
-  overflow: hidden;
-
-  border-radius: 42px;
-  padding: clamp(28px, 4vw, 56px);
-  min-height: 720px;
-
+.ai-fraud-section {
+  padding: clamp(90px, 10vw, 150px) 24px;
   background:
-    radial-gradient(circle at 82% 12%, rgba(255, 133, 111, 0.16), transparent 28%),
-    linear-gradient(135deg, rgba(255,255,255,0.92), rgba(250,246,241,0.86));
-
-  border: 1px solid rgba(255,255,255,0.9);
-  box-shadow: 0 34px 100px rgba(26, 26, 46, 0.10);
-  color: var(--text-dark);
+    radial-gradient(circle at 15% 20%, rgba(255,146,118,0.16), transparent 28%),
+    radial-gradient(circle at 90% 10%, rgba(251,223,209,0.38), transparent 26%),
+    linear-gradient(180deg, #f7f3f0 0%, var(--bg-light) 100%);
+  font-family: 'Oswald', sans-serif;
 }
 
-.fraud-panel::before {
+.ai-fraud__inner {
+  max-width: 1380px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: clamp(48px, 7vw, 100px);
+  align-items: center;
+}
+
+.ai-fraud__label {
+  display: inline-flex;
+  margin-bottom: 24px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: var(--coral-ghost-2);
+  color: var(--coral-dark);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+}
+
+.ai-fraud__copy h2 {
+  max-width: 760px;
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(54px, 6.5vw, 102px);
+  line-height: 0.88;
+  letter-spacing: -0.065em;
+  color: var(--ink);
+}
+
+.ai-fraud__body {
+  max-width: 680px;
+  margin-top: 34px;
+  display: grid;
+  gap: 18px;
+}
+
+.ai-fraud__body p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(17px, 1.3vw, 20px);
+  line-height: 1.68;
+  letter-spacing: -0.012em;
+}
+
+.ai-fraud__panel {
+  position: relative;
+}
+
+.ai-fraud__panel::before {
   content: "";
   position: absolute;
-  inset: 0;
-
-  background-image:
-    linear-gradient(rgba(26,26,46,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26,26,46,0.035) 1px, transparent 1px);
-
-  background-size: 36px 36px;
-  mask-image: linear-gradient(180deg, rgba(0,0,0,0.55), transparent 75%);
-  pointer-events: none;
+  inset: 8% -3% -5% 12%;
+  border-radius: 44px;
+  background: linear-gradient(135deg, rgba(255,146,118,0.32), rgba(251,223,209,0.14));
+  filter: blur(10px);
+  z-index: 0;
 }
 
-.fraud-panel > * {
+.risk-console {
   position: relative;
   z-index: 1;
+  padding: clamp(28px, 4vw, 46px);
+  border-radius: 38px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.76));
+  border: 1px solid rgba(23,23,23,0.08);
+  box-shadow:
+    0 36px 100px rgba(23,23,23,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.9);
 }
 
-.fraud-panel h3 {
-  margin: 28px 0 24px;
-  max-width: 760px;
-  color: var(--text-dark);
-  font-size: clamp(44px, 5vw, 76px);
-  line-height: 0.9;
-  letter-spacing: -0.08em;
-}
-
-.fraud-panel > p:not(.panel-eyebrow) {
-  max-width: 680px;
-  color: var(--text-body);
-  font-size: 20px;
-  line-height: 1.65;
-}
-
-.fraud-list {
-  margin-top: 44px;
-  display: grid;
-  gap: 16px;
-}
-
-.fraud-row {
-  display: grid;
-  grid-template-columns: 54px 1fr auto;
-  gap: 16px;
+.risk-console__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
   align-items: center;
-
-  padding: 20px;
-  border-radius: 22px;
-
-  background: rgba(255,255,255,0.78);
-  border: 1px solid rgba(26,26,46,0.07);
-  box-shadow: 0 14px 34px rgba(26,26,46,0.06);
+  margin-bottom: 34px;
 }
 
-.fraud-check {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-
-  display: grid;
-  place-items: center;
-
-  background: rgba(255,133,111,0.14);
-  color: var(--coral-dark);
-
-  font-size: 22px;
+.risk-console__top span {
+  color: rgba(23,23,23,0.42);
+  font-size: 13px;
   font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
 }
 
-.fraud-row strong {
+.risk-console__top strong {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,146,118,0.12);
+  color: var(--coral-dark);
+  font-size: 13px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.risk-score {
+  padding: 34px;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 85% 10%, rgba(255,255,255,0.45), transparent 26%),
+    linear-gradient(135deg, var(--coral-dark), var(--coral));
+  color: white;
+  box-shadow: 0 26px 70px rgba(224,106,80,0.28);
+}
+
+.risk-score span {
+  display: block;
+  margin-bottom: 18px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+}
+
+.risk-score strong {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(72px, 8vw, 128px);
+  line-height: 0.82;
+  letter-spacing: -0.06em;
+}
+
+.risk-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.risk-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(23,23,23,0.035);
+  border: 1px solid rgba(23,23,23,0.06);
+}
+
+.risk-item > span {
+  width: 10px;
+  height: 10px;
+  margin-top: 7px;
+  border-radius: 50%;
+  background: rgba(255,146,118,0.45);
+  box-shadow: 0 0 0 6px rgba(255,146,118,0.12);
+  flex-shrink: 0;
+}
+
+.risk-item--high > span {
+  background: var(--coral);
+}
+
+.risk-item strong {
   display: block;
   margin-bottom: 4px;
-
-  color: var(--text-dark);
-  font-size: 18px;
-  font-weight: 900;
+  color: var(--ink);
+  font-size: 16px;
 }
 
-.fraud-row span {
-  color: var(--text-muted);
-  font-size: 15px;
+.risk-item p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
   line-height: 1.45;
+  font-family: 'Oswald', sans-serif;
 }
 
-.fraud-row em {
-  font-style: normal;
-  font-family: 'Barlow', sans-serif;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+.risk-output {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 22px;
+}
 
+.risk-output div {
+  padding: 20px;
+  border-radius: 22px;
+  font-family: 'Oswald', sans-serif;
+
+  background: rgba(251,223,209,0.42);
+  border: 1px solid rgba(255,146,118,0.16);
+}
+
+.risk-output small {
+  display: block;
+  margin-bottom: 8px;
   color: var(--coral-dark);
-  background: rgba(255,133,111,0.12);
-  padding: 8px 10px;
-  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.risk-output strong {
+  display: block;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+@media (max-width: 1000px) {
+  .ai-fraud__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .ai-fraud-section {
+    padding: 70px 20px;
+  }
+
+  .risk-output {
+    grid-template-columns: 1fr;
+  }
+
+  .risk-score strong {
+    font-size: 76px;
+  }
 }

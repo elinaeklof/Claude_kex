@@ -1,0 +1,265 @@
+* { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Oswald',sans-serif;
+      color: var(--ink);
+      background: var(--bg-light);
+    }
+
+    .page {
+      min-height: 100vh;
+      display: block;
+      place-items: center;
+      padding: 0;
+    }
+
+    .hero {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  overflow: hidden;
+
+  border-radius: 0; /* viktigt för full width */
+  background: var(--white);
+}
+
+    .hero-copy {
+      padding: clamp(44px, 6vw, 78px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      margin-bottom: 24px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: var(--coral-ghost-2);
+      color: var(--coral-dark);
+      font-size: 13px;
+      font-weight: 750;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0 0 28px;
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+      font-weight: 850;
+    }
+
+    .body {
+      max-width: 720px;
+      display: grid;
+      gap: 18px;
+      color: var(--muted);
+      font-size: clamp(17px, 1.45vw, 20px);
+      line-height: 1.58;
+      letter-spacing: -0.015em;
+    }
+
+    .body p {
+      margin: 0;
+    }
+
+    .closing {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: var(--ink);
+      font-size: clamp(21px, 2vw, 28px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px;
+      border-radius: 42px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(255, 146, 118, 0.34), transparent 34%),
+        linear-gradient(135deg, var(--coral-ghost-2), var(--coral-ghost));
+    }
+
+    .display-card {
+      position: relative;
+      width: min(390px, 100%);
+      aspect-ratio: 0.72;
+      border-radius: 42px;
+      padding: 10px;
+      background: rgba(15, 18, 23, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow:
+        0 42px 90px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+      backdrop-filter: blur(24px);
+      transform: perspective(900px) rotateY(-6deg) rotateX(3deg);
+    }
+
+    .display-card::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 12px;
+      width: 54px;
+      height: 5px;
+      border-radius: 999px;
+      transform: translateX(-50%);
+      background: rgba(23,23,23,0.16);
+      z-index: 2;
+    }
+
+    .display-card::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 22px;
+      transform: translateX(-50%) rotate(22deg);
+      width: 120px;
+      height: 180px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.46), transparent 70%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .screen {
+      height: 100%;
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 22% 0%, rgba(255, 146, 118, 0.24), transparent 38%),
+        linear-gradient(180deg, #202020 0%, #101010 100%);
+      padding: 34px 26px 26px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.1),
+        inset 0 -34px 80px rgba(0,0,0,0.28);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .screen::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, rgba(255,255,255,0.16), transparent 34%);
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .screen > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .screen-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.68);
+    }
+
+    .screen-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      color: rgb(236, 230, 230);
+    }
+
+    .screen-brand::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--coral);
+      box-shadow: 0 0 0 5px rgba(255,146,118,0.18);
+    }
+
+    .screen-title {
+      margin-top: 48px;
+      font-size: 38px;
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      font-weight: 850;
+      max-width: 270px;
+    }
+
+    .screen-pill {
+      width: fit-content;
+      margin-top: 20px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(255,146,118,0.16);
+      border: 1px solid rgba(255,146,118,0.34);
+      color: #ffd7cb;
+      font-size: 12px;
+      font-weight: 800;
+      backdrop-filter: blur(12px);
+    }
+
+    .screen-bottom {
+      display: grid;
+      gap: 10px;
+    }
+
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 13px 14px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.055);
+      font-size: 13px;
+      color: rgba(255,255,255,0.66);
+      backdrop-filter: blur(14px);
+    }
+
+    .metric strong {
+      color: white;
+      font-size: 14px;
+    }
+
+    .accent-dot {
+      position: absolute;
+      right: 9%;
+      bottom: 10%;
+      width: 90px;
+      height: 90px;
+      border-radius: 999px;
+      background: var(--coral);
+      opacity: 0.55;
+      filter: blur(2px);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .hero-visual {
+        min-height: 460px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page { padding: 16px; }
+      .hero { border-radius: 24px; }
+      .hero-copy { padding: 34px 24px; }
+      .hero-visual { padding: 28px; min-height: 390px; }
+      h1 { font-size: 42px; }
+      .body { font-size: 16px; }
+    }
