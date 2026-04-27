@@ -17,6 +17,10 @@
   align-items: center;
 }
 
+.product-hero__visual {
+  min-height: 500px;
+}
+
 .product-hero__eyebrow {
   color: var(--coral-dark);
   font-family: 'Oswald', sans-serif;
