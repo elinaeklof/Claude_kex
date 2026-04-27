@@ -50,3 +50,28 @@ background: #fff;
 
   outline: 1px solid rgba(0,0,0,0.04); 
 }
+
+ .advisor-photo {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 22px;
+  display: block;
+}
+
+/* finjustera beskärningen */
+.advisor-photo--alex {
+  object-position: center 18%;
+}
+
+.advisor-photo--johan {
+  object-position: center 12%;
+}
+
+.advisor-photo--yvonne {
+  object-position: center 15%;
+}
+
+.advisor-photo--stefano {
+  object-position: center 20%;
+}
