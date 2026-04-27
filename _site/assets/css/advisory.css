@@ -1,0 +1,35 @@
+ .carousel-shell { perspective: 1100px; margin-top: 40px; }
+    .advisor-carousel {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .advisor-card {
+      min-height: 280px;
+      padding: 24px;
+      transform-style: preserve-3d;
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+    .advisor-card:hover { transform: rotateY(8deg) translateY(-8px); box-shadow: 0 30px 80px rgba(17,24,39,.16); }
+    .avatar {
+      width: 64px; height: 64px;
+      border-radius: 22px;
+      display: grid; place-items: center;
+      color: white;
+      font-weight: 950;
+      background: linear-gradient(135deg, var(--brand), #101828);
+      margin-bottom: 22px;
+    }
+    .advisor-card p { margin-top: 12px; font-size: .96rem; }
+.glass-card {
+  border-radius: 28px;
+  background: rgba(255,255,255,0.8);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  backdrop-filter: blur(12px);
+}
+
+.advisor-card:hover {
+  transform: translateY(-8px) rotateY(6deg);
+  box-shadow: 0 30px 80px rgba(224,106,80,.18);
+}
