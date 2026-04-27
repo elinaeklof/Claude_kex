@@ -169,7 +169,7 @@ function initHeroOcean() {
 ========================= */
 
 function initProduct3D() {
-  const container = document.querySelector('.product-suite__visual');
+  const container = document.querySelector('.product-hero__visual');
   const canvas = document.querySelector('#product-3d');
 
   if (!container || !canvas) return;
