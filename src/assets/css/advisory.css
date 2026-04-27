@@ -3,6 +3,8 @@
   margin-top: 40px;
 }
 
+
+
 .advisor-carousel {
   display: grid;
   grid-template-columns: repeat(4, minmax(260px, 1fr));

@@ -4,6 +4,8 @@
 }
 
 .insights-section {
+  position: relative;
+  overflow: hidden;
   background:
     radial-gradient(circle at 78% 72%, rgba(255, 146, 118, 0.28), transparent 34%),
     linear-gradient(90deg, #f7f2ef 0%, var(--coral-ghost-2) 48%, #f7f2ef 100%);
@@ -122,8 +124,6 @@
   .insights-lead {
     max-width: 100%;
   }
-}.insights-section {
-  background: var(--bg-light);
 }
 
 .insights-section .section__inner {
