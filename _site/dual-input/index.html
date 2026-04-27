@@ -17,13 +17,14 @@
   <link rel="stylesheet" href="/assets/css/fraud-section.css">
   <link rel="stylesheet" href="/assets/css/hardware-bank.css">
   <link rel="stylesheet" href="/assets/css/hardware-retail/hotel.css">
-  <link rel="stylesheet" href="/assets/css/ikea-case.css">
+  <link rel="stylesheet" href="/assets/css/cases.css">
   <link rel="stylesheet" href="/assets/css/market-tabs.css">
   <link rel="stylesheet" href="/assets/css/patents-section.css">
   <link rel="stylesheet" href="/assets/css/pillars-section.css">
   <link rel="stylesheet" href="/assets/css/pilot-section.css">
   <link rel="stylesheet" href="/assets/css/products-section.css">
   <link rel="stylesheet" href="/assets/css/stat-bar.css">
+  <link rel="stylesheet" href="/assets/css/product--2.css">
   <link rel="stylesheet" href="/assets/css/components.css">
   <link rel="icon" href="/assets/img/logo-id24.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/logo-id24.png">
@@ -55,51 +56,37 @@
   </button>
 </nav>
 
-
 <section class="section hero" aria-label="Hero">
-  <div class="hero-kaleido"></div>
-  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <canvas id="ocean-canvas" class="hero__canvas"></canvas>
   <div class="hero__body">
-    <p class="hero__eyebrow">Patented software · Since 2009 · 20+ countries</p>
-    <span class="hero__line">Next generation</span>
-
-    
-    <span class="hero__line hero__line-tw" aria-live="polite" aria-label="Animated verticals">
-  <span id="tw-text" class="hero__tw-text"></span>
-  <span id="tw-cursor" class="hero__tw-cursor">|</span>
-</span>
-
+    <p class="hero__eyebrow">Next-generation tech · Since 2009</p>
+    <span class="hero__line">A customer touch point has two sides. Finally, <span class="hero__gradient">both of them work.</span></span>
 
     <p class="hero__desc">
-       <strong> A customer touch point has two sides. Finally, both of them work.</strong> For fifteen years, ID24 has pioneered customer-facing technology 
-       - for staff working stores, front desks and bank offices. We 
-       re-invented anything from the paper form, customer display hardware 
-       to fraud detection using AI.
+       For fifteen years, ID24 has pioneered customer-facing technology — for staff working stores, front desks and bank offices. We re-invented anything from the paper form, customer display hardware to fraud detection using AI.
     </p>
 
-    
     <div class="hero__actions">
-      <a href="#banks"    class="btn--banks">For Banks →</a>
-      <a href="#retail"   class="btn--retail">For Retail &amp; Hotels →</a>
-      <a href="#hardware" class="btn--outline">Explore Hardware</a>
+      <a href="#banks"    class="btn--banks">Book a pilot  →</a>
+      <a href="#retail"   class="btn--retail">See the product suite →</a>
     </div>
 
-    
-    <div class="hero__trust" aria-label="Key facts">
-      <div class="trust-pill">No system changes required</div>
-      <div class="trust-pill">Pilot live in 8–12 weeks</div>
-    </div>
     </div>   
   </div>
+  <script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module" src="/assets/js/main.js"></script>
 </section>
 
 
 <style>
-/* ── FADE-SLIDE-UP KEYFRAME ── */
-@keyframes fadeSlideUp {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
 
 /* ── RESPONSIV ── */
 @media (max-width: 768px) {
@@ -109,8 +96,6 @@
   .btn--primary, .btn--ghost { padding: 12px 20px; font-size: 12px; }
 }
 </style>
-
-
 
 <div class="stat-bar" aria-label="Key statistics">
   <div class="stat-bar__item">
@@ -130,29 +115,179 @@
     <div class="stat-bar__label">Country installations</div>
   </div>
 </div>
+<section class="section section--bg-light duo-input-section">
+  <div class="duo-input-section__inner">
+
+    <div class="duo-input-section__text">
+      <h2 class="section__title">Two screens. Two users. One seamless experience.</h2>
+
+      <div class="duo-input-section__intro">
+        <p class="duo-input-section__lead">
+          Duo Input™ is an ID24 patented software that enables true simultaneous touch input across multiple displays — no cursor conflicts, no interruptions, no operating-system workarounds. Two people can work on two screens at the same time, and it just works. Perfect for digital forms in a bank office, or a loyalty registration form in a store or hotel.
+        </p>
+      </div>
+      <ul class="duo-input-section__list">
+        
+      </ul>
+
+    
+<div class="duo-input-section__image-wrap">
+  <section class="signature-usecase-animation" aria-label="Duo Input signature workflow animation">
+
+    <div class="signature-screen signature-screen-form">
+      <p class="signature-screen-label">Display 1</p>
+      <div class="input-screen signature-input-screen">
+        <div class="screen-text signature-output" id="signatureUseCaseOutput"></div>
+      </div>
+      <p class="signature-context-note">Name confirmation</p>
+      <div class="signature-left-signature-line">
+        <svg class="signature-stroke signature-stroke-left" viewBox="0 0 360 130" role="img" aria-label="Animated staff signature">
+          <path d="M26 84 C42 38 82 35 75 78 C69 112 38 105 55 70 C74 31 108 52 116 83 C123 112 88 101 98 72 C111 39 142 71 157 82 C179 99 188 68 203 74 C226 84 240 86 258 78 C278 69 292 76 310 78 C327 80 340 76 350 78" />
+        </svg>
+      </div>
+      <p class="signature-caption signature-caption-left">Signature</p>
+      <div class="keys signature-keys" aria-label="Duo Input keyboard">
+        <button class="screen-button" data-signature-key="D">D</button>
+        <button class="screen-button" data-signature-key="U">U</button>
+        <button class="screen-button" data-signature-key="O">O</button>
+        <button class="screen-button key-wide" data-signature-key="BACKSPACE">DEL</button>
+        <button class="screen-button" data-signature-key="I">I</button>
+        <button class="screen-button" data-signature-key="N">N</button>
+        <button class="screen-button" data-signature-key="P">P</button>
+        <button class="screen-button" data-signature-key="U">U</button>
+        <button class="screen-button" data-signature-key="T">T</button>
+        <button class="screen-button key-blancspace" data-signature-key=" "></button>
+      </div>
+    </div>
+
+    <div class="signature-screen signature-screen-sign">
+      <p class="signature-screen-label">Display 2</p>
+      <svg class="signature-stroke signature-stroke-customer" viewBox="0 0 360 130" role="img" aria-label="Animated customer signature">
+        <path d="M26 84 C42 38 82 35 75 78 C69 112 38 105 55 70 C74 31 108 52 116 83 C123 112 88 101 98 72 C111 39 142 71 157 82 C179 99 188 68 203 74 C226 84 240 86 258 78 C278 69 292 76 310 78 C327 80 340 76 350 78" />
+      </svg>
+      <p class="signature-caption">Signature</p>
+    </div>
+
+  </section>
+</div>
+
+  </div>
+</section>
+
+<section class="product-suite">
+  <div class="product-suite__inner">
+
+    <div>
+      <p class="product-suite__eyebrow">Product suite</p>
+
+      <h2>Technology for every customer touchpoint</h2>
+
+      <p>
+        Since 2009, ID24 brings together interface design, device software,
+        data validation, AI, and purpose-built hardware into flexible solutions.
+      </p>
+    </div>
+
+    <div class="product-suite__visual">
+      <canvas id="product-3d" class="product-suite__canvas"></canvas>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script type="module" src="/assets/js/main.js"></script>
+<section class="use-cases">
+  <div class="use-cases__inner">
+    <div class="use-cases__intro">
+      <p class="eyebrow">Use cases</p>
+      <h2>Built for real customer touchpoints</h2>
+    </div>
+
+    <div class="use-cases__grid">
+      <article class="use-card">
+        <p class="use-card__label">Retail & hotel</p>
+        <h3>Keep sign-ups at the counter</h3>
+        <p>
+          Your sign-up registration rate is only 20% when sending SMS confirmations to customers in-store?
+          Many in-store sign-up flows lose customers when registration continues by SMS after the interaction
+          has already moved on.
+        </p>
+        <p>
+          With next-generation customer displays, the customer can complete the flow directly at the counter —
+          improving conversion, data quality, and the overall service experience.
+        </p>
+        <a href="#retail">Read more in our Retail section →</a>
+      </article>
+
+      <article class="use-card use-card--dark">
+        <p class="use-card__label">Banks</p>
+        <h3>Give both sides their own screen</h3>
+        <p>
+          Many bank offices still rely on shared tablets for digital agreements, customer data, and signatures.
+          Passing one device back and forth can feel clumsy, slow, and easy to get wrong.
+        </p>
+        <p>
+          With separate screens for the advisor and the customer, both sides can work together in a smoother,
+          clearer, and more professional flow.
+        </p>
+        <a href="#banking">Read more in our Banking section →</a>
+      </article>
+    </div>
+  </div>
+</section>
 <section class="shared-platform" id="hardware">
   <div class="shared-platform__grid">
     <article class="hardware-panel">
       <p class="panel-eyebrow">Hardware</p>
-      <h3>Built for real-world counters.</h3>
+
+      <h3>Software is nothing without a screen worth looking at.</h3>
+
       <p>
-        Robust customer displays with NFC, cameras and multiple screen sizes —
-        designed for interaction between customer, staff and existing systems.
+        ID24 runs on any consumer-grade tablet — Android, iOS, or Windows — so pilots can start cheap and fast.
+        For production deployments, our D|2 displays are purpose-built for the till.
       </p>
 
-      <div class="device-preview">
+      <div class="hardware-specs">
+        <div class="hardware-spec">
+          <strong>Robust.</strong>
+          <span>Metal-sheet construction built for the retail floor, not the office.</span>
+        </div>
+
+        <div class="hardware-spec">
+          <strong>Three sizes.</strong>
+          <span>10", 13.3", and 15.6" — picked to fit different counter layouts.</span>
+        </div>
+
+        <div class="hardware-spec">
+          <strong>Front-mounted NFC.</strong>
+          <span>Enables smart payments and fallback when the main terminal or network drops.</span>
+        </div>
+
+        <div class="hardware-spec">
+          <strong>Loyalty card cameras.</strong>
+          <span>Integrated cameras scan loyalty cards cleanly, every time.</span>
+        </div>
+      </div>
+
+      <div class="hardware-compatible-block">
+        <p class="hardware-compatible-title">Compatible hardware we've deployed with</p>
+
+      <div class="device-preview" data-size="10">
         <div class="device-screen" id="device-screen">
-          <span class="device-logo">DI2</span>
           <span class="device-size" id="device-size-label">10”</span>
+          <span class="device-model" id="device-model">D|2 T2</span>
         </div>
       </div>
 
       <div class="device-controls" aria-label="Choose screen size">
-        <button class="device-chip" data-size="8">8”</button>
-        <button class="device-chip is-active" data-size="10">10”</button>
-        <button class="device-chip" data-size="13.3">13.3”</button>
-        <button class="device-chip" data-size="15.6">15.6”</button>
-      </div>
+  <button class="device-chip" data-size="8">Adyen SFO1 · 8”</button>
+  <button class="device-chip is-active" data-size="10">D|2 T2 · 10”</button>
+  <button class="device-chip" data-size="13.3">D|2 HDMI · 13.3”</button>
+  <button class="device-chip" data-size="14">Wacom One · 14”</button>
+  <button class="device-chip" data-size="15.6">D|2 HDMI · 15.6”</button>
+</div>
     </article>
   </div>
 </section>
@@ -195,58 +330,6 @@
         </div>
       </div>
     </article>
-  </div>
-</section>
-<section class="proof-section" id="proof">
-  <span class="proof-bg">PROOF</span>
-
-  <div class="proof-inner">
-    <div class="proof-header">
-      <p class="proof-tag">Proof · Research · Protection</p>
-      <h2>Credibility that supports the sale.</h2>
-      <p>
-        Research, articles, patents, awards, accelerator programs and advisory board credibility.
-      </p>
-    </div>
-
-    <div class="proof-grid">
-      <article class="proof-main-card">
-        <p class="proof-card-label">Research / IKEA / Articles</p>
-
-        <div class="proof-stat">89%</div>
-
-        <h3>
-          Retailers see theft as a key self-checkout challenge.
-        </h3>
-
-        <p>
-          Use articles, studies and customer stories as proof that ID24 understands the operational problems behind modern checkout and customer interaction.
-        </p>
-      </article>
-
-      <div class="proof-side">
-        <article class="proof-card">
-          <h4>Patents & protection</h4>
-          <p>
-            Highlight patented simultaneous input and protected interaction design as a competitive advantage.
-          </p>
-        </article>
-
-        <article class="proof-card">
-          <h4>Global experience</h4>
-          <p>
-            Show 15+ years of experience, 20+ countries and international recognition as brand credibility.
-          </p>
-        </article>
-
-        <article class="proof-card">
-          <h4>Pilot without system change</h4>
-          <p>
-            Make the conversion path clear: remote installation, software testing, support and typical go-live in 8–12 weeks.
-          </p>
-        </article>
-      </div>
-    </div>
   </div>
 </section>
 <article class="fraud-panel">
