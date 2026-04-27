@@ -1,0 +1,64 @@
+.trust-strip {
+  position: relative;
+  border-block: 1px solid rgba(17,24,39,.1);
+  background: var(--coral);
+  overflow: hidden;
+}
+
+.trust-strip::before,
+.trust-strip::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.trust-strip::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-light), transparent);
+}
+
+.trust-strip::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-light), transparent);
+}
+
+.trust-track:hover {
+  animation-play-state: paused;
+}
+
+.trust-track {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 18px 0;
+  animation: marquee 36s linear infinite;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 850;
+  color: white;
+  white-space: nowrap;
+}
+
+.trust-track span::after {
+  content: "·";
+  margin-left: 32px;
+  color: var(--coral-ghost);
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .trust-track {
+    animation-duration: 22s;
+    gap: 20px;
+    font-size: 13px;
+  }
+}
