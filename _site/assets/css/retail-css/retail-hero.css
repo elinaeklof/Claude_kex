@@ -1,5 +1,7 @@
 * { box-sizing: border-box; }
 
+/* ===== LAYOUT ===== */
+
 .retail-hero {
   width: 100%;
   min-height: calc(100vh - 80px);
@@ -18,7 +20,7 @@
   overflow: hidden;
 }
 
-/* LEFT SIDE */
+/* ===== LEFT ===== */
 
 .retail-hero-copy {
   max-width: 780px;
@@ -66,17 +68,16 @@
   color: #063d44;
 }
 
-/* RIGHT SIDE */
+/* ===== RIGHT PANEL ===== */
 
 .retail-hero-visual {
   position: relative;
-  min-height: 620px;
-  max-height: 720px;
+  height: 620px;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: clamp(48px, 5vw, 80px);
+  padding: 64px;
 
   border-radius: 42px;
   overflow: hidden;
@@ -86,7 +87,7 @@
     linear-gradient(135deg, #ffd8c9 0%, #ffb99f 100%);
 }
 
-/* subtle border highlight */
+/* subtle inner border */
 .retail-hero-visual::after {
   content: "";
   position: absolute;
@@ -96,19 +97,19 @@
   pointer-events: none;
 }
 
-/* device card */
+/* ===== DEVICE CARD ===== */
 
 .retail-hero-display-card {
-  width: min(520px, 86%);
-  aspect-ratio: 0.78;
+  width: min(520px, 82%);
+  aspect-ratio: 0.9; /* FIXAR din overflow */
   border-radius: 42px;
-  padding: 34px;
+  padding: 32px;
 
   background: linear-gradient(145deg, #252525 0%, #0d0d0d 100%);
 
   box-shadow:
     0 38px 80px rgba(0,0,0,0.28),
-    inset 0 0 0 8px rgba(255,255,255,0.08);
+    inset 0 0 0 6px rgba(255,255,255,0.08);
 
   transform: perspective(900px) rotateY(-4deg) rotateX(2deg);
 }
@@ -127,11 +128,13 @@
   color: rgba(255,255,255,0.75);
 }
 
+/* ===== SCREEN CONTENT ===== */
+
 .retail-hero-screen-title {
-  margin-top: 64px;
-  max-width: 300px;
+  margin-top: 56px;
+  max-width: 320px;
   font-family: 'Oswald', sans-serif;
-  font-size: clamp(42px, 3.4vw, 58px);
+  font-size: clamp(40px, 3vw, 52px);
   line-height: 0.95;
   letter-spacing: -0.04em;
   font-weight: 700;
@@ -140,29 +143,29 @@
 
 .retail-hero-screen-pill {
   width: fit-content;
-  margin-top: 24px;
-  padding: 12px 16px;
+  margin-top: 22px;
+  padding: 10px 15px;
   border-radius: 999px;
   border: 1px solid rgba(255,146,118,0.5);
   color: #ffd7cb;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   background: rgba(255,146,118,0.08);
 }
 
 .retail-hero-screen-bottom {
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .retail-hero-metric {
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  padding: 16px 18px;
+  padding: 14px 16px;
   border-radius: 16px;
   background: rgba(0,0,0,0.42);
-  font-size: 15px;
+  font-size: 14px;
   color: rgba(255,255,255,0.7);
 }
 
@@ -170,7 +173,7 @@
   color: white;
 }
 
-/* accent blob */
+/* ===== ACCENT ===== */
 
 .retail-hero-accent-dot {
   position: absolute;
@@ -184,7 +187,7 @@
   filter: blur(4px);
 }
 
-/* RESPONSIVE */
+/* ===== RESPONSIVE ===== */
 
 @media (max-width: 900px) {
   .retail-hero {
@@ -194,7 +197,7 @@
   }
 
   .retail-hero-visual {
-    min-height: 520px;
+    height: 520px;
   }
 
   .retail-hero-title {
@@ -207,10 +210,6 @@
 }
 
 @media (max-width: 560px) {
-  .retail-hero-copy {
-    max-width: 100%;
-  }
-
   .retail-hero-display-card {
     width: min(360px, 100%);
     padding: 24px;
