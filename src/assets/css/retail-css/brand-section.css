@@ -1,0 +1,46 @@
+.brand-note {
+  padding: 96px 24px 120px;
+  background:
+    radial-gradient(circle at 85% 10%, rgba(255, 138, 114, 0.12), transparent 34%),
+    linear-gradient(180deg, #fff 0%, #f7f8fb 100%);
+}
+
+.brand-note__inner {
+  max-width: 920px;
+  margin: 0 auto;
+  padding-top: 34px;
+  border-top: 2px solid var(--coral, #ff8a72);
+}
+
+.brand-note__label {
+  margin: 0 0 18px;
+  color: var(--coral, #ff8a72);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.brand-note__title {
+  margin: 0;
+  max-width: 760px;
+  color: var(--navy, #081833);
+  font-size: clamp(38px, 4.8vw, 72px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
+
+.brand-note__body {
+  margin: 28px 0 0;
+  max-width: 760px;
+  color: rgba(8, 24, 51, 0.62);
+  font-size: clamp(18px, 1.5vw, 22px);
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+.brand-note__body strong {
+  color: var(--navy, #081833);
+  font-weight: 850;
+}

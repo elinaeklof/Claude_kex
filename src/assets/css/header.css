@@ -1,19 +1,19 @@
     .nav {
-    background: rgba(255,255,255,.58);
+    background: #eeeeee;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     padding: 0 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 56px;
+    height: 60px;
     position: sticky;
     top: 0;
     z-index: 100;
   }
 
   .nav__logo img {
-  height: 40px;
+  height: 53px;
   width: auto;
   }
 

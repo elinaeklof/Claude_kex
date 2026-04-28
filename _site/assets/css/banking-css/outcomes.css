@@ -1,0 +1,79 @@
+.bank-outcomes {
+  padding: 110px 24px;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(255,133,111,.14), transparent 30%),
+    linear-gradient(180deg, #f7f3f0 0%, #ffffff 100%);
+  font-family: 'Oswald', sans-serif;
+}
+
+.bank-outcomes__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.bank-outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 52px;
+}
+
+.bank-outcome-card {
+  min-height: 300px;
+  padding: 30px;
+  border-radius: 30px;
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(23,23,23,.08);
+  box-shadow: 0 18px 50px rgba(23,23,23,.06);
+}
+
+.bank-outcome-card__number {
+  display: block;
+  margin-bottom: 38px;
+  color: rgba(255,133,111,.36);
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.bank-outcome-card h3 {
+  margin: 0 0 14px;
+  color: var(--ink, #171717);
+  font-size: 26px;
+  line-height: 1.05;
+  letter-spacing: -.04em;
+}
+
+.bank-outcome-card p {
+  margin: 0;
+  color: var(--muted, rgba(23,23,23,.62));
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.bank-outcome-card--accent {
+  background: var(--coral, #ff856f);
+  border-color: rgba(255,133,111,.5);
+}
+
+.bank-outcome-card--accent .bank-outcome-card__number,
+.bank-outcome-card--accent h3,
+.bank-outcome-card--accent p {
+  color: #fff;
+}
+
+@media (max-width: 1000px) {
+  .bank-outcome-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .bank-outcome-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bank-outcomes {
+    padding: 76px 20px;
+  }
+}
