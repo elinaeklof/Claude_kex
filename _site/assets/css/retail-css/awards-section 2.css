@@ -1,0 +1,134 @@
+.proof-block {
+  margin-top: 52px;
+  display: grid;
+  grid-template-columns: 360px minmax(0, 1fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.metric {
+  max-width: 360px;
+}
+
+.metric__line {
+  width: 100%;
+  height: 3px;
+  background: var(--coral, #ff8a72);
+  margin-bottom: 26px;
+}
+
+.metric__number {
+  display: block;
+  font-size: 92px;
+  line-height: 0.85;
+  font-weight: 900;
+  letter-spacing: -0.07em;
+  color: var(--navy, #081833);
+}
+
+.metric__label {
+  display: block;
+  margin-top: 14px;
+  color: rgba(8, 24, 51, 0.55);
+  font-size: 12px;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+
+.proof-text {
+  margin: 36px 0 0;
+  max-width: 1180px;
+  color: rgba(8, 24, 51, 0.6);
+  font-size: 18px;
+  line-height: 1.55;
+  font-weight: 520;
+}
+
+.proof-text strong {
+  color: var(--navy);
+  font-weight: 850;
+}
+
+.awards-panel--horizontal {
+  margin-top: 42px;
+  position: relative;
+  padding: 28px;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(255, 138, 114, 0.18), transparent 38%),
+    rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(8, 24, 51, 0.08);
+  box-shadow: 0 30px 90px rgba(8, 24, 51, 0.1);
+}
+
+.awards-panel--horizontal::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border-radius: 24px;
+  border: 1px solid rgba(8, 24, 51, 0.06);
+  pointer-events: none;
+}
+
+.awards-panel__label {
+  position: relative;
+  margin: 0 0 18px;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(8, 24, 51, 0.44);
+}
+
+.awards-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.award-pill {
+  width: 100%;
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  border-radius: 20px;
+  padding: 16px 18px;
+  box-shadow: none;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(8, 24, 51, 0.08);
+  color: var(--navy);
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.25;
+}
+
+.award-pill__icon {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--coral, #ff8a72);
+  color: var(--navy);
+  font-size: 12px;
+}
+
+@media (max-width: 980px) {
+  .proof-block {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .metric {
+    max-width: 360px;
+  }
+
+  .awards-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
