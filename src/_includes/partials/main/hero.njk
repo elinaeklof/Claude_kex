@@ -2,30 +2,31 @@
   <canvas id="ocean-canvas" class="hero__canvas"></canvas>
 
   <div class="hero__body">
-    <div class="hero__content">
-      <p class="hero__eyebrow">Next-generation tech · Since 2009</p>
+    <p class="hero__eyebrow">Next-generation tech · Since 2009</p>
 
-      <h1 class="hero__line">
-        A customer touch point has two sides. Finally,
-        <span class="hero__gradient">both of them work.</span>
-      </h1>
+    <h1 class="hero__line">
+      <span class="hero__line-inner" id="hero-typewriter" aria-label="A customer touch point has 2 sides. Finally, both of them work."><span class="hero__placeholder">A CUSTOMER TOUCH POINT HAS 2 SIDES.<br>FINALLY, BOTH OF THEM WORK.</span></span>
+    </h1>
 
-      <p class="hero__desc">
-        For fifteen years, ID24 has pioneered customer-facing technology — for staff working stores, front desks and bank offices. We re-invented anything from the paper form, customer display hardware to fraud detection using AI.
-      </p>
+    <div class="hero__bottom">
+      <div class="hero__content">
+        <p class="hero__desc">
+          For fifteen years, ID24 has pioneered customer-facing technology — for staff working stores, front desks and bank offices. We re-invented anything from the paper form, customer display hardware to fraud detection using AI.
+        </p>
 
-      <div class="hero__actions">
-        <a href="#banks" class="btn--banks">Book a pilot →</a>
-        <a href="#retail" class="btn--retail">See the product suite →</a>
+        <div class="hero__actions">
+          <a href="#banks" class="btn--banks">Book a pilot →</a>
+          <a href="#retail" class="btn--retail">See the product suite →</a>
+        </div>
       </div>
-    </div>
 
-    <div class="hero__image-wrap">
-      <img
-        src="/assets/img/dual-input-monitors.png"
-        alt="Dual input monitors"
-        class="hero__image"
-      >
+      <div class="hero__image-wrap">
+        <img
+          src="/assets/img/dual-input-monitors.png"
+          alt="Dual input monitors"
+          class="hero__image"
+        >
+      </div>
     </div>
   </div>
   <script type="importmap">
@@ -37,8 +38,36 @@
 }
 </script>
 
-<script src="/assets/js/ocean.js"></script>
-<script type="module" src="/assets/js/main.js"></script>
+<script>
+(function() {
+  var el = document.getElementById('hero-typewriter');
+  if (!el) return;
+  var part1 = 'A CUSTOMER TOUCH POINT HAS 2 SIDES.\nFINALLY, ';
+  var part2 = 'BOTH OF THEM WORK.';
+  var full = part1 + part2;
+  var i = 0;
+  var speed = 32;
+
+  // Lock the height before we start by measuring the placeholder
+  var ph = el.querySelector('.hero__placeholder');
+  if (ph) {
+    var h = el.offsetHeight;
+    el.style.minHeight = h + 'px';
+    el.innerHTML = ''; // clear placeholder, start typing
+  }
+
+  function tick() {
+    i++;
+    var typed = full.slice(0, i);
+    var p1 = typed.slice(0, Math.min(i, part1.length)).replace('\n', '<br>');
+    var p2 = typed.length > part1.length ? typed.slice(part1.length) : '';
+    el.innerHTML = p1 + (p2 ? '<span class="hero__gradient">' + p2 + '</span>' : '');
+    if (i < full.length) setTimeout(tick, speed);
+  }
+  setTimeout(tick, 50);
+})();
+</script>
+<script type="module" src="/assets/js/ocean.js"></script>
 </section>
 
 

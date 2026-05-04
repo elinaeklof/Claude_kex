@@ -2,166 +2,6 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.m
 import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/controls/OrbitControls.js';
 import { RoundedBoxGeometry } from 'https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/geometries/RoundedBoxGeometry.js';
 
-/* =========================
-   HERO OCEAN
-========================= */
-
-function initHeroOcean() {
-  const postCanvas = document.getElementById('heroOcean') || document.getElementById('ocean-canvas');
-  if (!postCanvas) return;
-
-  const postctx = postCanvas.getContext('2d');
-  const renderCanvas = document.createElement('canvas');
-  const c = renderCanvas.getContext('2d');
-  const vertices = [];
-
-  const vertexCount = 7000;
-  const vertexSize = 2.6;
-  const oceanWidth = 204;
-  const oceanHeight = -80;
-  const gridSize = 32;
-  const waveSize = 16;
-  const perspective = 100;
-  const depth = vertexCount / oceanWidth * gridSize;
-
-  const { sin, cos, PI } = Math;
-
-  let frame = 0;
-  let oldTimeStamp = performance.now();
-  let animationFrame;
-
-  const coral = [224, 106, 80];
-  const yellow = [255, 146, 118];
-  const navy = [247, 242, 239];
-
-  const mix = (a, b, t) =>
-    a.map((v, i) => Math.round(v + (b[i] - v) * t));
-
-  for (let i = 0; i < vertexCount; i++) {
-    const x = i % oceanWidth;
-    const y = 0;
-    const z = i / oceanWidth >> 0;
-    const offset = oceanWidth / 2;
-
-    vertices.push([(-offset + x) * gridSize, y * gridSize, z * gridSize]);
-  }
-
-  function resize() {
-    const rect = postCanvas.getBoundingClientRect();
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-
-    const width = Math.max(1, Math.floor(rect.width * dpr));
-    const height = Math.max(1, Math.floor(rect.height * dpr));
-
-    if (postCanvas.width !== width || postCanvas.height !== height) {
-      postCanvas.width = renderCanvas.width = width;
-      postCanvas.height = renderCanvas.height = height;
-
-      postctx.setTransform(1, 0, 0, 1, 0, 0);
-      c.setTransform(1, 0, 0, 1, 0, 0);
-    }
-  }
-
-  function loop(timeStamp) {
-    resize();
-
-    const rad = sin(frame / 100) * PI / 20;
-    const rad2 = sin(frame / 50) * PI / 10;
-
-    const dt = Math.min((timeStamp - oldTimeStamp) / 1000, 0.05);
-    oldTimeStamp = timeStamp;
-    frame += dt * 50;
-
-    const width = renderCanvas.width;
-    const height = renderCanvas.height;
-
-    c.fillStyle = '#eeeeee';;
-    c.fillRect(0, 0, width, height);
-
-    c.save();
-    c.translate(width / 2, height / 2.08);
-    c.scale(Math.max(0.72, width / 1440), Math.max(0.72, width / 1440));
-
-    vertices.forEach((vertex, i) => {
-      let x = vertex[0] - frame % (gridSize * 2);
-      let z = vertex[2] - frame * 2 % gridSize + (i % 2 === 0 ? gridSize / 2 : 0);
-
-      const wave =
-        cos(frame / 45 + x / 50) -
-        sin(frame / 20 + z / 50) +
-        sin(frame / 30 + z * x / 10000);
-
-      let y = vertex[1] + wave * waveSize;
-      const a = Math.max(0, 1 - Math.sqrt(x ** 2 + z ** 2) / depth);
-
-      let tx;
-      let ty;
-      let tz;
-
-      y -= oceanHeight;
-
-      tx = x * cos(rad) + z * sin(rad);
-      tz = -x * sin(rad) + z * cos(rad);
-      x = tx;
-      z = tz;
-
-      tx = x * cos(rad) - y * sin(rad);
-      ty = x * sin(rad) + y * cos(rad);
-      x = tx;
-      y = ty;
-
-      ty = y * cos(rad2) - z * sin(rad2);
-      tz = y * sin(rad2) + z * cos(rad2);
-      y = ty;
-      z = tz;
-
-      if (a < 0.01 || z < 0) return;
-
-      x /= z / perspective;
-      y /= z / perspective;
-
-      c.globalAlpha = Math.min(1, a * 1.8);
-
-      const t = Math.max(0, Math.min(1, (wave + 2.5) / 5));
-      const rgb = mix(coral, yellow, t);
-
-      c.fillStyle = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
-      c.fillRect(
-        x - a * vertexSize / 2,
-        y - a * vertexSize / 2,
-        a * vertexSize,
-        a * vertexSize
-      );
-
-      c.globalAlpha = 1;
-    });
-
-    c.restore();
-
-    postctx.clearRect(0, 0, postCanvas.width, postCanvas.height);
-    postctx.drawImage(renderCanvas, 0, 0);
-
-    postctx.globalCompositeOperation = 'multiply';
-    postctx.filter = 'blur(8px)';
-    postctx.drawImage(renderCanvas, 0, 0);
-    postctx.filter = 'blur(0)';
-    postctx.globalCompositeOperation = 'source-over';
-
-    animationFrame = requestAnimationFrame(loop);
-  }
-
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-  if (!reducedMotion.matches) {
-    animationFrame = requestAnimationFrame(loop);
-  } else {
-    resize();
-  }
-
-  window.addEventListener('beforeunload', () => {
-    cancelAnimationFrame(animationFrame);
-  });
-}
 
 
 /* =========================
@@ -389,7 +229,39 @@ function initDevicePreview() {
   setDevice("10");
 }
 
+function initHeroTypewriter() {
+  const textEl = document.getElementById('typewriter-text');
+  const cursor = document.querySelector('.typewriter-cursor');
+
+  if (!textEl || !cursor) return;
+
+  const text = 'A customer touch point has 2 sides.\nFinally, both of them work.';
+  let i = 0;
+
+  textEl.innerHTML = '';
+
+  function type() {
+    if (i >= text.length) {
+      cursor.style.display = 'none';
+      return;
+    }
+
+    if (text[i] === '\n') {
+      textEl.appendChild(document.createElement('br'));
+    } else {
+      textEl.append(text[i]);
+    }
+
+    i++;
+    setTimeout(type, 32);
+  }
+
+  type();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initDevicePreview();
   initProduct3D();
+  initHeroTypewriter();
+  initHeroOcean();
 });
