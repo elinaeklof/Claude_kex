@@ -60,7 +60,6 @@
 }
 
 .article-card::after {
-  content: "2024";
   position: absolute;
   right: -22px;
   bottom: -34px;
@@ -189,7 +188,6 @@
 }
 
 .article-card::after {
-  content: "2024";
   position: absolute;
   right: -22px;
   bottom: -34px;
