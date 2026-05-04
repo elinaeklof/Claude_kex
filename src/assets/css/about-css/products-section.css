@@ -49,6 +49,17 @@
   color: var(--text-body);
 }
 
+.product-hero__tw-text {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 @media (max-width: 900px) {
   .product-hero__inner {
     grid-template-columns: 1fr;
