@@ -57,6 +57,7 @@
   <link rel="icon" href="/assets/img/logo-id24.png">
   <link rel="icon" href="/assets/img/Alex_Baker.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/logo-id24.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.min.css">
 </head>
 <body>
   
@@ -375,37 +376,30 @@
     </div>
   </div>
 </section>
-<section class="section" id="advisory">
-  <div class="section__inner">
-    <p class="section__label">Advisory board</p>
-    <h2 class="section__title">The people we check our thinking with.</h2>
-        <div class="carousel-shell">
-          <div class="advisor-carousel">
-            <article class="advisor-card glass-card">
-                <img class="advisor-photo advisor-photo--alex" src="/assets/img/Alex_Baker.png" alt="Alex Baker">
-                <h3>Alex Baker
-                </h3>
-                <p>Serial entrepreneur and retail strategist. Founder of Nordic Retail Hub. Focus on innovation, AI, and the future of retail.</p>
-            </article>
-            <article class="advisor-card glass-card">
-                <img class="advisor-photo advisor-photo--johan" src="/assets/img/Johan_Rosenblom.png" alt="Johan Rosenblom">
-                <h3>Johan Rosenblom</h3>
-                <p>Entrepreneur and business developer. Board and advisory experience across real estate, investment, and growth companies.</p>
-            </article>
-            <article class="advisor-card glass-card">
-                <img class="advisor-photo advisor-photo--yvonne" src="/assets/img/Yvonne_Magnusson.png" alt="Yvonne Magnusson">
-                <h3>Yvonne Magnusson</h3>
-                <p>Experienced leader and business developer with a background in strategic and operational retail roles.</p>
-            </article>
-            <article class="advisor-card glass-card">
-                <img class="advisor-photo advisor-photo--stefano" src="/assets/img/Stefano_Crozzoli.png" alt="Stefano Crozzoli">
-                <h3>Stefano Crozzoli</h3>
-                <p>CEO/COO, certified board member, and business advisor. Deep experience in sales, retail, and growth-stage companies.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="carousel-shell">
+  <div id="advisor-slider" class="keen-slider">
+    <article class="keen-slider__slide advisor-card glass-card">
+      <img class="advisor-photo advisor-photo--alex" src="/assets/img/Alex_Baker.png" alt="Alex Baker">
+      <h3>Alex Baker</h3>
+      <p>Serial entrepreneur and retail strategist. Founder of Nordic Retail Hub. Focus on innovation, AI, and the future of retail.</p>
+    </article>
+    <article class="keen-slider__slide advisor-card glass-card">
+      <img class="advisor-photo advisor-photo--johan" src="/assets/img/Johan_Rosenblom.png" alt="Johan Rosenblom">
+      <h3>Johan Rosenblom</h3>
+      <p>Entrepreneur and business developer. Board and advisory experience across real estate, investment, and growth companies.</p>
+    </article>
+    <article class="keen-slider__slide advisor-card glass-card">
+      <img class="advisor-photo advisor-photo--yvonne" src="/assets/img/Yvonne_Magnusson.png" alt="Yvonne Magnusson">
+      <h3>Yvonne Magnusson</h3>
+      <p>Experienced leader and business developer with a background in strategic and operational retail roles.</p>
+    </article>
+    <article class="keen-slider__slide advisor-card glass-card">
+      <img class="advisor-photo advisor-photo--stefano" src="/assets/img/Stefano_Crozzoli.png" alt="Stefano Crozzoli">
+      <h3>Stefano Crozzoli</h3>
+      <p>CEO/COO, certified board member, and business advisor. Deep experience in sales, retail, and growth-stage companies.</p>
+    </article>
+  </div>
+</div>
 <section class="section section--gradient" id="patents">
   <div class="section__inner">
     <p class="section__label">Patents and design protection</p>
@@ -435,6 +429,8 @@
   <div class="footer__copy">© 2026 ID24 · All rights reserved.</div>
 </footer>
 
-  <script type="module" src="/assets/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.js"></script>
+<script src="/assets/js/advisor-slider.js"></script>
+<script type="module" src="/assets/js/main.js"></script>
 </body>
 </html>

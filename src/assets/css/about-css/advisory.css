@@ -1,22 +1,23 @@
 .carousel-shell {
   perspective: 1100px;
   margin-top: 40px;
+  overflow: visible;
 }
 
-
-
 .advisor-carousel {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(260px, 1fr));
-  gap: 24px;
+  display: block;
 }
 
 .advisor-card {
-      min-height: 280px;
-      padding: 24px;
-      transform-style: preserve-3d;
-      transition: transform .28s ease, box-shadow .28s ease;
-    }
+  min-height: 280px;
+  padding: 24px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease, opacity 0.6s ease, box-shadow 0.28s ease;
+  height: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
 
 .advisor-card:hover {
   transform: translateY(-8px) rotateY(6deg);
@@ -47,21 +48,10 @@
   transform: scale(1.05);
 }
 
-.advisor-photo--alex {
-  object-position: center 18%;
-}
-
-.advisor-photo--johan {
-  object-position: center 12%;
-}
-
-.advisor-photo--yvonne {
-  object-position: center 15%;
-}
-
-.advisor-photo--stefano {
-  object-position: center 20%;
-}
+.advisor-photo--alex   { object-position: center 18%; }
+.advisor-photo--johan  { object-position: center 12%; }
+.advisor-photo--yvonne { object-position: center 15%; }
+.advisor-photo--stefano{ object-position: center 20%; }
 
 .advisor-card h3 {
   margin: 0;
@@ -71,19 +61,43 @@
   color: var(--navy);
 }
 
-.advisor-card p { margin-top: 12px; font-size: .96rem; }
-
-@media (max-width: 1100px) {
-  .advisor-carousel {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.advisor-card p {
+  margin-top: 12px;
+  font-size: .96rem;
 }
 
-@media (max-width: 700px) {
-  .advisor-carousel {
-    grid-template-columns: 1fr;
-  }
+/* ── Keen Slider ── */
+#advisor-slider {
+  overflow: visible !important;
+}
 
+#advisor-slider .keen-slider__slide {
+  opacity: 0.5;
+  transform: scale(0.92);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+#advisor-slider .keen-slider__slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Keen-sliders eget stylesheet sätter overflow: hidden — vi tvingar tillbaka */
+.keen-slider:not([data-keen-slider-disabled]) {
+  overflow: visible !important;
+}
+
+/* ── Section ── */
+#advisory {
+  overflow: visible;
+}
+
+#advisory .section__inner {
+  overflow: visible;
+}
+
+/* ── Responsiv ── */
+@media (max-width: 700px) {
   .advisor-card {
     min-height: auto;
     padding: 34px 28px;
