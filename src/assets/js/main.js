@@ -179,9 +179,15 @@ function initDevicePreview() {
       size: "8”",
       model: "Adyen SFO1"
     },
-    "10": {
+    "d2-t2": {
       size: "10”",
-      model: "D|2 T2"
+      model: "D|2 T2",
+      previewSize: "10"
+    },
+    "hp-10": {
+      size: "10”",
+      model: "HP",
+      previewSize: "10"
     },
     "13.3": {
       size: "13.3”",
@@ -220,13 +226,7 @@ function initDevicePreview() {
     });
   });
 
-  hardwareChips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      setDevice(chip.dataset.size);
-    });
-  });
-
-  setDevice("10");
+  setDevice("d2-t2");
 }
 
 function initHeroTypewriter() {

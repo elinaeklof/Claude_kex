@@ -179,15 +179,13 @@ function initDevicePreview() {
       size: "8”",
       model: "Adyen SFO1"
     },
-    "d2-t2": {
+    "10": {
       size: "10”",
-      model: "D|2 T2",
-      previewSize: "10"
+      model: "D|2 T2"
     },
-    "hp-10": {
+    "10": {
       size: "10”",
-      model: "HP",
-      previewSize: "10"
+      model: "HP"
     },
     "13.3": {
       size: "13.3”",
