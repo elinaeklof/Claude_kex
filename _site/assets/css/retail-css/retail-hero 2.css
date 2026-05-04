@@ -1,0 +1,222 @@
+* { box-sizing: border-box; }
+
+/* ===== LAYOUT ===== */
+
+.retail-hero {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(56px, 7vw, 120px);
+  align-items: center;
+
+  padding: clamp(70px, 8vw, 120px) clamp(70px, 8vw, 140px);
+
+  background:
+    radial-gradient(rgba(255, 146, 118, 0.22) 2px, transparent 2px),
+    var(--white);
+  background-size: 48px 48px;
+
+  overflow: hidden;
+}
+
+/* ===== LEFT ===== */
+
+.retail-hero-copy {
+  max-width: 780px;
+}
+
+.retail-hero-eyebrow {
+  margin-bottom: 22px;
+  color: var(--coral-dark);
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+}
+
+.retail-hero-title {
+  max-width: 780px;
+  margin: 0 0 28px;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(58px, 5.8vw, 96px);
+  line-height: 0.94;
+  letter-spacing: -0.045em;
+  font-weight: 700;
+  color: #063d44;
+}
+
+.retail-hero-body {
+  max-width: 760px;
+  display: grid;
+  gap: 26px;
+  color: #063d44;
+  font-size: clamp(20px, 1.35vw, 25px);
+  line-height: 1.48;
+}
+
+.retail-hero-body p {
+  margin: 0;
+}
+
+.retail-hero-closing {
+  margin-top: 42px;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(28px, 2.4vw, 36px);
+  font-weight: 700;
+  color: #063d44;
+}
+
+/* ===== RIGHT PANEL ===== */
+
+.retail-hero-visual {
+  position: relative;
+  height: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 64px;
+
+  border-radius: 42px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 84% 82%, rgba(255, 113, 80, 0.46), transparent 14%),
+    linear-gradient(135deg, #ffd8c9 0%, #ffb99f 100%);
+}
+
+/* subtle inner border */
+.retail-hero-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
+  pointer-events: none;
+}
+
+/* ===== DEVICE CARD ===== */
+
+.retail-hero-display-card {
+  width: min(520px, 82%);
+  aspect-ratio: 0.9; /* FIXAR din overflow */
+  border-radius: 42px;
+  padding: 32px;
+
+  background: linear-gradient(145deg, #252525 0%, #0d0d0d 100%);
+
+  box-shadow:
+    0 38px 80px rgba(0,0,0,0.28),
+    inset 0 0 0 6px rgba(255,255,255,0.08);
+
+  transform: perspective(900px) rotateY(-4deg) rotateX(2deg);
+}
+
+.retail-hero-screen {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.retail-hero-screen-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+}
+
+/* ===== SCREEN CONTENT ===== */
+
+.retail-hero-screen-title {
+  margin-top: 56px;
+  max-width: 320px;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(40px, 3vw, 52px);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  color: white;
+}
+
+.retail-hero-screen-pill {
+  width: fit-content;
+  margin-top: 22px;
+  padding: 10px 15px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,146,118,0.5);
+  color: #ffd7cb;
+  font-size: 13px;
+  font-weight: 700;
+  background: rgba(255,146,118,0.08);
+}
+
+.retail-hero-screen-bottom {
+  display: grid;
+  gap: 10px;
+}
+
+.retail-hero-metric {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(0,0,0,0.42);
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+}
+
+.retail-hero-metric strong {
+  color: white;
+}
+
+/* ===== ACCENT ===== */
+
+.retail-hero-accent-dot {
+  position: absolute;
+  right: 8%;
+  bottom: 10%;
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  background: var(--coral);
+  opacity: 0.5;
+  filter: blur(4px);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+  .retail-hero {
+    grid-template-columns: 1fr;
+    padding: 64px 24px;
+    gap: 42px;
+  }
+
+  .retail-hero-visual {
+    height: 520px;
+  }
+
+  .retail-hero-title {
+    font-size: clamp(46px, 12vw, 70px);
+  }
+
+  .retail-hero-body {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 560px) {
+  .retail-hero-display-card {
+    width: min(360px, 100%);
+    padding: 24px;
+  }
+
+  .retail-hero-screen-title {
+    margin-top: 40px;
+    font-size: 36px;
+  }
+}

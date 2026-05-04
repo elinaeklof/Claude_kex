@@ -39,7 +39,7 @@
 .hero__eyebrow {
   font-family: 'Oswald', sans-serif;
   font-size: 15px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: #111;
@@ -49,9 +49,10 @@
 .hero__line {
   display: block;
   width: 100%;
-  font-family: 'Oswald', sans-serif;
+  line-height: 0.95;
+  font-family: "Oswald" sans-serif;
   font-weight: 700;
-  font-size: clamp(28px, 3.5vw, 52px);
+  font-size: clamp(3.8rem, 7.3vw, 7.5rem);
   line-height: 1.0;
   letter-spacing: -1px;
   text-transform: uppercase;
@@ -85,10 +86,11 @@
 }
 
 .hero__desc {
+  font-size: 1.22rem;
+  line-height: 1.58;
+  font-family: "Open Sans", Arial, sans-serif;
   margin-top: 34px;
   max-width: 620px;
-  font-size: 22px;
-  line-height: 1.58;
   color: var(--text-body);
 }
 
@@ -111,6 +113,7 @@
   font-size: 18px;
   font-weight: 700;
   text-decoration: none;
+  
 }
 
 .btn--banks,
@@ -173,8 +176,6 @@
   background: var(--coral);
   border-radius: 50%;
 }
-
-
 
 @media (max-width: 1100px) {
   .hero {

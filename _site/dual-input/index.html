@@ -6,6 +6,8 @@
   <title>Next-Generation Customer Displays for Banks, Retail &amp; Hotels | ID24</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 
   <meta name="description" content="ID24 offers a broad portfolio of software for improving form-filling and customer interactions — built around our patented Duo Input technology. For banks, retail chains and hotels. No system changes required.">
   <link rel="stylesheet" href="/assets/css/main.css">
@@ -19,6 +21,7 @@
   <link rel="stylesheet" href="/assets/css/stat-bar.css">
 
   <link rel="stylesheet" href="/assets/css/about-css/hero.css">
+    <link rel="stylesheet" href="/assets/css/about-css/duo-input-section.css">
   <link rel="stylesheet" href="/assets/css/about-css/hardware-both.css">
   <link rel="stylesheet" href="/assets/css/about-css/cases.css">
   <link rel="stylesheet" href="/assets/css/about-css/patents-section.css">
@@ -27,6 +30,7 @@
   <link rel="stylesheet" href="/assets/css/about-css/ikea-article.css">
   <link rel="stylesheet" href="/assets/css/about-css/components.css">
   <link rel="stylesheet" href="/assets/css/about-css/trust-strip.css">
+  <link rel="stylesheet" href="/assets/css/about-css/footer.css">
 
   <link rel="stylesheet" href="/assets/css/retail-css/awards-section.css">
   <link rel="stylesheet" href="/assets/css/retail-css/crm-section.css">
@@ -166,30 +170,36 @@
   .btn--primary, .btn--ghost { padding: 12px 20px; font-size: 12px; }
 }
 </style>
-<section class="trust-strip" aria-label="Trust signals"> 
-  <div class="trust-track"> 
-    <span>15+ years in market</span>
-    <span>20+ countries</span>
-    <span>AAA-rated many years</span>
-    <span>Award-winning in the US, Asia, and Europe</span>
-    <span>Patent-protected technology</span>
-    <span>UIC Accelerator company 2026–2027</span> 
-    <span>15+ years in market</span>
-    <span>20+ countries</span>
-    <span>AAA-rated many years</span>
-    <span>Award-winning in the US, Asia, and Europe</span>
-    <span>Patent-protected technology</span>
-    <span>UIC Accelerator company 2026–2027</span> </div> 
-  </section>
+<div class="stat-bar" aria-label="Key statistics">
+  <div class="stat-bar__item">
+    <div class="stat-bar__number">15 yrs</div>
+    <div class="stat-bar__label">Retail tech expertise</div>
+  </div>
+  <div class="stat-bar__item">
+    <img src="/assets/img/uic-logo.png" alt="UIC logo" class="stat-bar__logo">
+    <div class="stat-bar__label">Accelerator company 2026–27</div>
+  </div>
+  <div class="stat-bar__item">
+    <div class="stat-bar__number">AAA</div>
+    <div class="stat-bar__label">Many years with high credit rating</div>
+  </div>
+  <div class="stat-bar__item">
+    <div class="stat-bar__number">20+</div>
+    <div class="stat-bar__label">Country installations</div>
+  </div>
+</div>
 <section class="section section--bg-light duo-input-section">
   <div class="duo-input-section__inner">
 
     <div class="duo-input-section__text">
-      <h2 class="section__title">Two screens. Two users. One seamless experience.</h2>
+      <h2 class="duo-input-section__title">Two screens. Two users. <br>
+        One seamless experience.</h2>
 
       <div class="duo-input-section__intro">
         <p class="duo-input-section__lead">
-          Duo Input™ is an ID24 patented software that enables true simultaneous touch input across multiple displays — no cursor conflicts, no interruptions, no operating-system workarounds. Two people can work on two screens at the same time, and it just works. Perfect for digital forms in a bank office, or a loyalty registration form in a store or hotel.
+          Duo Input™ is an ID24 patented software that enables true simultaneous touch input across multiple displays — no cursor<br>
+          conflicts, no interruptions, no operating-system workarounds. Two people can work on two screens at the same time, and it<br>
+          just works. Perfect for digital forms in a bank office, or a loyalty registration form in a store or hotel.
         </p>
       </div>
       <ul class="duo-input-section__list">
@@ -199,7 +209,7 @@
     </div> 
     </div>
 
-    
+  
 <div class="duo-input-section__image-wrap">
   <section class="signature-usecase-animation" aria-label="Duo Input signature workflow animation">
 
@@ -244,14 +254,13 @@
 </section>
 
 <section class="product-hero">
+        <h2>NEXT GENERATION<br>
+        <span id="pg-tw-text" class="product-hero__tw-text"></span><span class="product-hero__tw-cursor"></span>
+      </h2>
   <div class="product-hero__inner">
 
     <div>
-      <p class="product-hero__eyebrow">Product suite</p>
 
-      <h2>NEXT GENERATION<br>
-        <span id="pg-tw-text" class="product-hero__tw-text"></span><span class="product-hero__tw-cursor"></span>
-      </h2>
 
       <p>
         Every customer interaction has a front side and a back side: what the customer sees and what the business needs to make it work.</p>
@@ -272,14 +281,9 @@
 <script type="module" src="/assets/js/main.js"></script>
 <section class="use-cases">
   <div class="use-cases__inner">
-    <div class="use-cases__intro">
-      <p class="eyebrow">Use cases</p>
-      <h2>Built for real customer touchpoints</h2>
-    </div>
-
     <div class="use-cases__grid">
       <article class="use-card">
-        <p class="use-card__label">Retail & hotel</p>
+        <p class="use-card__label">Use case: Retail & hotel</p>
         <h3>Keep sign-ups at the counter</h3>
         <p>
           Your sign-up registration rate is only 20% when sending SMS confirmations to customers in-store?
@@ -294,7 +298,7 @@
       </article>
 
       <article class="use-card use-card--dark">
-        <p class="use-card__label">Banks</p>
+        <p class="use-card__label">Use case:Banks</p>
         <h3>Give both sides their own screen</h3>
         <p>
           Many bank offices still rely on shared tablets for digital agreements, customer data, and signatures.
@@ -318,27 +322,21 @@
 
       <p>
         ID24 runs on any consumer-grade tablet — Android, iOS, or Windows — so pilots can start cheap and fast.
-        For production deployments, our D|2 displays are purpose-built for the till.
+        For production deployments, we work with proven customer-facing displays and touch hardware.
       </p>
 
       <div class="hardware-compatible-block">
-        <p class="hardware-compatible-title">Compatible hardware we've deployed with</p>
+        <p class="hardware-compatible-title">Example of hardware we’ve deployed with</p>
 
-      <div class="device-preview" data-size="10">
-        <div class="device-screen" id="device-screen">
-          <span class="device-size" id="device-size-label">10”</span>
-          <span class="device-model" id="device-model">D|2 T2</span>
-        </div>
+        <ul class="hardware-example-list">
+          <li><strong>Adyen SFO1</strong> <span>8", Android + NFC</span></li>
+          <li><strong>D|2 Android</strong> <span>10" + NFC</span></li>
+          <li><strong>D|2 HDMI Monitors</strong> <span>10", 13.3", 15.6" + NFC, Powered USB / USB-C</span></li>
+          <li><strong>HP Engage Monitor</strong> <span>10", USB-C</span></li>
+          <li><strong>Wacom One Monitor</strong> <span>14", no NFC, USB-C</span></li>
+          <li><strong>Any consumer tablet</strong> <span>Android, iOS, or Windows</span></li>
+        </ul>
       </div>
-
-      <div class="device-controls" aria-label="Choose screen size">
-  <button class="device-chip" data-size="8">Adyen SFO1 · 8”</button>
-  <button class="device-chip is-active" data-size="d2-t2">D|2 T2 · 10”</button>
-  <button class="device-chip" data-size="hp-10">HP · 10”</button>
-  <button class="device-chip" data-size="13.3">D|2 HDMI · 13.3”</button>
-  <button class="device-chip" data-size="14">Wacom One · 14”</button>
-  <button class="device-chip" data-size="15.6">D|2 HDMI · 15.6”</button>
-</div>
     </article>
   </div>
 </section>
@@ -377,9 +375,9 @@
   </div>
 </section>
 <div class="carousel-shell">
+  <div class ="advisor-eyebrow">Advisory board</div>
+  <h2 class="section__title__advisory">The people we check our <br> thinking with.</h2>
   <div class="section__inner">
-    <p class="section__label">Advisory board</p>
-    <h2 class="section__title">The people we check our thinking with.</h2>
   <div id="advisor-slider" class="keen-slider">
     <article class="keen-slider__slide advisor-card glass-card">
       <img class="advisor-photo advisor-photo--alex" src="/assets/img/Alex_Baker.png" alt="Alex Baker">
@@ -405,9 +403,9 @@
 </div>
 <section class="section section--gradient" id="patents">
   <div class="section__inner">
-    <p class="section__label">Patents and design protection</p>
-    <h2 class="section__title">Protected by design. And by patent.</h2>
-    <p class="section__lead">The ideas behind ID24 are protected where it matters most.</p>
+    <p class="section__label__patents">Patents and design protection</p>
+    <h2 class="section__title__patents">Protected by design. And by patent.</h2>
+    <p class="section__lead__patents">The ideas behind ID24 are protected where it matters most.</p>
         <div class="patent-grid">
           <article class="patent-card glass-card"><span>Patent</span><h3>Patent for simultaneous input.</h3><p>Our core technology — letting the cashier and the customer interact at the same time, without conflict — is patent-protected.</p></article>
           <article class="patent-card glass-card"><span>Design</span><h3>EU design patent for helper buttons.</h3><p>The one-tap domain shortcuts (@gmail.com, @hotmail.com, etc.) that make email capture two seconds instead of twenty — also protected.</p></article>
@@ -415,21 +413,42 @@
         </div>
       </div>
 </section>
-
 <footer class="footer">
-  <div class="footer__inner">
-    <div>
-      <div class="footer__logo">
-        <img src="/assets/img/logo-id24.png" alt="ID24 Logo">
+<div class="footer__inner">
+    <div class="footer__top">
+      <div>
+        <p class="footer__tagline">Resilient payments and operational continuity for banks, retailers and hotels.</p>
       </div>
-      <div class="footer__tagline">Innovative solutions for the future of retail</div>
+      <div>
+        <div class="footer__col-title">Services</div>
+        <ul class="footer__links">
+          <li><a href="#services">Resilience Advisory</a></li>
+          <li><a href="#services">Software &amp; Integration</a></li>
+          <li><a href="#services">Implementation</a></li>
+          <li><a href="#services">Research</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Industries</div>
+        <ul class="footer__links">
+          <li><a href="#industries">Banking</a></li>
+          <li><a href="#industries">Retail</a></li>
+          <li><a href="#industries">Hospitality</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Contact</div>
+        <ul class="footer__links">
+          <li><a href="#contact">Get in touch</a></li>
+          <li><a href="#contact">Book a demo</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer__info">
-      Solutions for retail, banking &amp; hotels<br>
-      Installed in 20+ countries · Since 2009
+    <div class="footer__bottom">
+      <span>© 2026 ID24. All rights reserved.</span>
+      <span>Founded 2009 · Uppsala, Sweden</span>
     </div>
   </div>
-  <div class="footer__copy">© 2026 ID24 · All rights reserved.</div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.js"></script>

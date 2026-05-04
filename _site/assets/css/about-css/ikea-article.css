@@ -30,9 +30,10 @@
 
 .insights-lead {
   max-width: 520px;
-  font-size: 22px;
-  line-height: 1.75;
   color: var(--text-muted);
+  font-size: 1.22rem;
+  line-height: 1.58;
+  font-family: "Open Sans", Arial, sans-serif;
 }
 
 .article-card {
@@ -44,19 +45,20 @@
 .article-card h3 {
   position: relative;
   z-index: 2;
-  font-size: clamp(28px, 2.4vw, 40px);
-  line-height: 1.05;
   color: var(--navy);
   margin-top: 24px;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 0.95;
 }
 
 .article-text {
   position: relative;
-  z-index: 2;
   margin-top: 22px;
-  font-size: 20px;
-  line-height: 1.7;
   color: var(--text-muted);
+  font-size: 1.22rem;
+  line-height: 1.58;
+  font-family: "Open Sans", Arial, sans-serif;
 }
 
 .article-card::after {

@@ -4,6 +4,28 @@
   gap: 18px; 
   margin-top: 34px; 
 }
+.section__label__patents{
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 20px;
+
+}
+.section__title__patents{
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: clamp(3.8rem, 7.3vw, 7.5rem);
+  line-height: 0.95;
+}
+
+.section__lead__patents{
+  font-size: 1.22rem;
+  line-height: 1.58;
+  font-family: "Open Sans", Arial, sans-serif;
+  margin-top: 22px;
+}
 
 .patent-card { 
   padding: 30px; 
@@ -16,8 +38,23 @@
   background: var(--coral);
   border-radius: 999px; 
   padding: 8px 12px; 
-  font-size: .78rem; 
+  font-size: 1rem; 
   font-weight: 900; 
+  font-family: 'Oswald', sans-serif;
+}
+
+.patent-card h3{
+  font-family: "Oswald", "Open Sans", Arial, sans-serif;
+  font-size: 1.7rem;
+  font-weight: 500;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.patent-card p{
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 1.22rem;
+  line-height: 1.58;
 }
 
 .glass-card {
