@@ -11,10 +11,11 @@
 
 .duo-input-section__title{
 font-family: "Oswald", "Open Sans", Arial, sans-serif;
-  font-weight: 500;
+  font-weight: 700;
   font-size: clamp(3.8rem, 7.3vw, 7.5rem);
   line-height: 1.1;
   letter-spacing: 0;
+  text-transform: uppercase;
 }
 
 .duo-input-section__lead {

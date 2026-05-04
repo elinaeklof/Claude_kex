@@ -57,16 +57,9 @@
   font-weight: 700;
   font-size: clamp(3.8rem, 7.3vw, 7.5rem);
   font-family: 'Oswald', sans-serif;  
+  text-transform: uppercase;
 }
 
-.hardware-panel h3,
-.hardware-panel h3 *,
-.hardware-both h3,
-.hardware-both h3 * {
-  font-family: "Oswald", sans-serif !important;
-  font-weight: 700;
-  letter-spacing: -1px;
-}
 
 /* ───────── TEXT ───────── */
 .hardware-panel > p:not(.panel-eyebrow) {

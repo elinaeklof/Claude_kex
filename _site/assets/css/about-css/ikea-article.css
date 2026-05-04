@@ -19,6 +19,7 @@
   letter-spacing: -0.06em;
   color: var(--navy);
   text-transform: none;
+  text-transform: uppercase;
 }
 
 .insights-wrap {

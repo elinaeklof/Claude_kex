@@ -24,6 +24,7 @@
   font-size: clamp(3.8rem, 7.3vw, 7.5rem); 
   line-height: 0.95; letter-spacing: -2px; 
   color: var(--coral); margin: 0; 
+  text-transform: uppercase;
   
 } 
 

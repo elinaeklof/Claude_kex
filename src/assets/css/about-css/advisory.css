@@ -13,6 +13,7 @@
   color: var(--text-dark);
   align-items: center;
   margin-left: 170px;
+  text-transform: uppercase;
 }
 .advisor-eyebrow{
   font-family: "Oswald", sans-serif;
@@ -103,7 +104,7 @@
   line-height: 1.05;
   letter-spacing: -0.05em;
   color: var(--navy);
-  font-family: 'Oswald', sans-serif;
+  font-family: "Open Sans", Arial, sans-serif;
   font-size: clamp(36px, 4vw, 56px);
   line-height: 0.95;
 }
