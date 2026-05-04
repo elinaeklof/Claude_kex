@@ -20,12 +20,14 @@
 html { 
   scroll-behavior: smooth; 
 }
-body { 
-  font-family: 'Oswald', sans-serif; 
-  background: var(--bg-light); 
-  color: var(--text-dark); 
-  line-height: 1.55; 
+body {
+  font-family: "Open Sans", Arial, sans-serif;  
+  background: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.55;
 }
+
+
 img { 
   max-width: 100%; 
   display: block; 
@@ -87,6 +89,13 @@ a {
 }
 .section__lead--light { 
   color: rgba(255,255,255,0.5); 
+}
+
+.duo-input-section__title,
+.product-hero h2,
+.hardware-panel h3 {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
 }
 
 @media (max-width: 768px) {

@@ -24,6 +24,7 @@
   font-size: clamp(3.8rem, 7.3vw, 7.5rem); 
   line-height: 0.95; letter-spacing: -2px; 
   color: var(--coral); margin: 0; 
+  
 } 
 
 .product-hero p { 
@@ -40,6 +41,13 @@
     overflow: hidden; 
     vertical-align: bottom; 
   } 
+
+#pg-tw-text,
+.product-hero__tw-cursor {
+  font-family: "Oswald", sans-serif !important;
+  font-weight: 700;
+}
+
   
   @keyframes slideUp { 
     from { opacity: 0; } 

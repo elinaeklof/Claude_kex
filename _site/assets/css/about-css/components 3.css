@@ -133,73 +133,7 @@
     border-radius: 10px;
   }
 
-  /* HARDWARE GRID */
-  .hardware-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 12px;
-    margin-top: 28px;
-  }
-
-  .hardware-card { 
-    border: 1px solid rgba(0, 0, 0, 0.07); 
-    border-radius: 8px; 
-    overflow: hidden; 
-  }
-
-  .hardware-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .hardware-card__screen-wrap {
-    background: var(--bg-light);
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hardware-card__screen {
-    background: var(--navy);
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 7px;
-  }
-
-  .hardware-card__screen span {
-    font-size: 7px;
-    color: rgba(255, 255, 255, 0.6);
-    font-family: 'Oswald', sans-serif;
-    text-align: center;
-    letter-spacing: 0.3px;
-  }
-
-  .hardware-card__body  { 
-    padding: 14px; 
-  }
-
-  .hardware-card__body h4 { 
-    font-size: 13px; 
-    font-weight: 600; 
-    color: var(--navy); 
-    margin-bottom: 3px; 
-  }
-
-  .hardware-card__body p  { 
-    font-size: 11px; 
-    color: var(--text-muted); 
-  }
-
-  .hardware-card__feature { 
-    font-size: 11px; 
-    color: var(--coral); 
-    font-weight: 600; 
-    margin-top: 6px; 
-  }
-
+  
   /* FRAUD / AI */
   .fraud-grid {
     display: grid;
@@ -359,51 +293,6 @@
     color: #a03030; 
   }
 
-  /* FAQ */
-  .faq__item { 
-    border-bottom: 1px solid rgba(0, 0, 0, 0.07); 
-  }
-
-  .faq__question {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    padding: 16px 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: 'Oswald', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--navy);
-    text-align: left;
-  }
-
-  .faq__question::after {
-    content: '+';
-    color: var(--coral);
-    font-size: 20px;
-    flex-shrink: 0;
-    transition: transform 0.25s;
-  }
-
-  .faq__item--open .faq__question::after { 
-    transform: rotate(45deg); 
-  }
-
-  .faq__answer {
-    font-size: 13px;
-    color: var(--text-body);
-    line-height: 1.65;
-    padding-bottom: 16px;
-    display: none;
-  }
-
-  .faq__item--open .faq__answer { 
-    display: block; 
-  }
 
   /* RESPONSIVE */
   @media (max-width: 768px) {

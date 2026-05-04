@@ -46,15 +46,26 @@
   box-shadow: 0 0 0 9px rgba(224, 106, 80, 0.12);
 }
 
+
 /* ───────── HEADLINE ───────── */
 .hardware-panel h3 {
   max-width: 920px;
   margin: 28px 0 24px;
-  font-family: 'Oswald', sans-serif;
-  font-size: clamp(48px, 5.4vw, 86px);
   line-height: 0.88;
   letter-spacing: -0.08em;
   color: var(--text-dark);
+  font-weight: 700;
+  font-size: clamp(3.8rem, 7.3vw, 7.5rem);
+  font-family: 'Oswald', sans-serif;  
+}
+
+.hardware-panel h3,
+.hardware-panel h3 *,
+.hardware-both h3,
+.hardware-both h3 * {
+  font-family: "Oswald", sans-serif !important;
+  font-weight: 700;
+  letter-spacing: -1px;
 }
 
 /* ───────── TEXT ───────── */
@@ -120,7 +131,7 @@
 .hardware-example-list strong {
   color: var(--navy);
   font-family: "Oswald", "Open Sans", Arial, sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.g25rem;
   font-weight: 700;
   letter-spacing: -0.02em;
 }

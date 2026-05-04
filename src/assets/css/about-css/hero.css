@@ -50,7 +50,7 @@
   display: block;
   width: 100%;
   line-height: 0.95;
-  font-family: "Oswald" sans-serif;
+  font-family: "Oswald", sans-serif;
   font-weight: 700;
   font-size: clamp(3.8rem, 7.3vw, 7.5rem);
   line-height: 1.0;

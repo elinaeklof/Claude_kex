@@ -11,10 +11,11 @@
     linear-gradient(90deg, #f7f2ef 0%, var(--coral-ghost-2) 48%, #f7f2ef 100%);
 }
 
-.insights-title {
+.section__title.insights-title {
   max-width: 930px;
-  font-size: clamp(48px, 5.5vw, 86px);
+  font-size: clamp(3.8rem, 7.3vw, 7.5rem);
   line-height: 0.95;
+  font-family: "Oswald", "Open Sans", Arial, sans-serif;
   letter-spacing: -0.06em;
   color: var(--navy);
   text-transform: none;

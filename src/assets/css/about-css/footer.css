@@ -1,5 +1,5 @@
 .footer {
-  background: #05080c;
+  background: var(--navy);
   color: rgba(255, 255, 255, 0.7);
   padding: 64px 0 40px;
   font-family: "Open Sans", Arial, sans-serif;
