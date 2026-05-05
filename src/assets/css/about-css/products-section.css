@@ -25,6 +25,7 @@
   line-height: 0.95; letter-spacing: -2px; 
   color: var(--coral); margin: 0; 
   text-transform: uppercase;
+  margin-left: 70px;
   
 } 
 
@@ -35,6 +36,7 @@
   font-size: 1.22rem;
   line-height: 1.58;
   font-family: "Open Sans", Arial, sans-serif;
+  margin-left: 70px;
  } 
 
   .product-hero__tw-text { 

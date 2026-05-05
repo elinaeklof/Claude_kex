@@ -6,7 +6,7 @@
   align-items: center;
   background: #eeeeee;
   padding: 8vh 0 6vh;
-  border-radius: 0 0 42px 42px;
+  border-radius: 0 0 45px 45px;
 }
 
 .hero__canvas {
@@ -48,11 +48,12 @@
 
 .hero__line {
   display: block;
+  min-height: 2em;
   width: 100%;
   line-height: 0.95;
   font-family: "Oswald", sans-serif;
   font-weight: 700;
-  font-size: clamp(3.8rem, 7.3vw, 7.5rem);
+  font-size: clamp(2.6rem, 5.8vw, 5.8rem);
   line-height: 1.0;
   letter-spacing: -1px;
   text-transform: uppercase;

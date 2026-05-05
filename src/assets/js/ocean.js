@@ -127,4 +127,4 @@ for (let i = 0; i < vertexCount; i++) {
 }
 
 // Start
-loop(performance.now())
+//loop(performance.now())
