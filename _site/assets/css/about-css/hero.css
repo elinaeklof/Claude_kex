@@ -195,7 +195,6 @@
 
   .hero__line {
     font-size: clamp(40px, 10vw, 64px);
-    min-height: 2em;
   }
 
   .hero__desc {
@@ -217,5 +216,19 @@
   .hero__actions a {
     width: 100%;
     text-align: center;
+  }
+
+  .hero__line {
+    margin-bottom: 18px;
+    min-height: auto;
+    min-height: 2em;
+  }
+
+  .hero__desc {
+    margin-top: 0;
+  }
+
+  .hero__bottom {
+    gap: 28px;
   }
 }
