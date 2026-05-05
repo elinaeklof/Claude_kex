@@ -4,11 +4,11 @@
   gap: 18px; 
   margin-top: 34px; 
 }
+
 .section__label__patents{
   font-family: "Oswald", sans-serif;
   font-weight: 700;
   letter-spacing: 3px;
-
   color: var(--coral);
   margin-bottom: 20px;
 
@@ -16,9 +16,11 @@
 .section__title__patents{
   font-family: "Oswald", sans-serif;
   font-weight: 700;
-  font-size: clamp(3.8rem, 7.3vw, 7.5rem);
+  font-size: clamp(3.5rem, 6vw, 6rem);
   line-height: 0.95;
   text-transform: uppercase;
+  white-space: pre-line;
+  max-width: none;
 }
 
 .section__lead__patents{
@@ -42,7 +44,6 @@
   font-size: 1rem; 
   font-weight: 900; 
   font-family: 'Oswald', sans-serif;
-  
 }
 
 .patent-card h3{
@@ -68,8 +69,12 @@
 }
 
 
+
     @media (max-width: 900px) {
   .patent-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr;}
+    
+    .section__title__patents br {
+    display: none;
   }
-}
+  }

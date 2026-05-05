@@ -305,23 +305,108 @@ font-family: "Open Sans", Arial, sans-serif;
   100%     { stroke-dashoffset: 760; }
 }
 
-@media (max-width: 900px) {
-  .signature-usecase-animation {
-    grid-template-columns: 1fr;
-    perspective: none;
-    gap: 1.5rem;
+@media (max-width: 1200px) {
+  :root {
+    --key-size: 3.15rem;
+    --key-gap: 5px;
+    --screen-padding: 1rem;
   }
+
+  .signature-usecase-animation,
+  .duo-input-section__image-wrap .signature-usecase-animation {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 38rem;
+    margin: 0 auto 14vh;
+    gap: 2rem;
+    perspective: none;
+  }
+
+  .signature-screen {
+    width: 100%;
+    max-width: 38rem;
+    height: auto;
+    min-height: 24rem;
+    padding: 1rem;
+    border-radius: 1.55rem;
+  }
+
   .signature-screen-form,
-  .signature-screen-sign { transform: none; min-height: 22rem; height: auto; }
-  .signature-screen-sign .signature-screen-label { top: 1rem; left: 1rem; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .signature-stroke path,
-  .signature-screen::after { animation: none; }
+  .signature-screen-sign {
+    transform: none;
+    justify-self: stretch;
+  }
+
+  .signature-screen-sign {
+    min-height: 18rem;
+  }
+
+  .signature-screen-sign .signature-screen-label {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .signature-usecase-animation .signature-input-screen,
+  .signature-context-note,
+  .signature-left-signature-line,
+  .signature-caption-left {
+    left: calc(50% - ((5 * var(--key-size)) + (4 * var(--key-gap))) / 2);
+    width: calc((5 * var(--key-size)) + (4 * var(--key-gap)));
+    max-width: calc(100% - 2rem);
+    right: auto;
+  }
+
+  .signature-usecase-animation .signature-input-screen {
+    top: 3.45rem;
+  }
+
+  .signature-context-note {
+    top: 6.65rem;
+  }
+
+  .signature-left-signature-line {
+    top: 8.35rem;
+    min-height: 3.05rem;
+  }
+
+  .signature-caption-left {
+    top: 11.65rem;
+  }
+
+  .signature-keys {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1.25rem;
+    width: calc((5 * var(--key-size)) + (4 * var(--key-gap)));
+    max-width: calc(100% - 2rem);
+    gap: var(--key-gap);
+  }
+
+  .signature-stroke-left {
+    width: 70%;
+    bottom: -2.5rem;
+  }
+
+  .signature-stroke-customer {
+    width: 88%;
+    min-height: 9rem;
+  }
+
+  .signature-screen::after {
+    content: none;
+  }
 }
 
-@media (max-width: 700px) {
-    .duo-input-section__title {
-        font-size: clamp(2.7rem, 12.2vw, 4.2rem);
-    }
+@media (max-width: 390px) {
+  :root {
+    --key-size: 2.65rem;
+  }
+
+  .signature-screen {
+    min-height: 22rem;
+  }
+
+  .signature-screen-sign {
+    min-height: 18rem;
+  }
 }

@@ -141,12 +141,80 @@
 
 /* ── Mobile ───────────────────────── */
 @media (max-width: 700px) {
+  .carousel-shell {
+    margin-top: 28px;
+    padding: 0 20px;
+    overflow: hidden;
+  }
+
+  .advisor-eyebrow {
+    margin-left: 0;
+    margin-bottom: 14px;
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+
+  .section__title__advisory {
+    margin-left: 0;
+    font-size: clamp(2.6rem, 11vw, 4rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+  }
+
+  .section__title__advisory br {
+    display: none;
+  }
+
+  #advisor-slider {
+    width: 100%;
+    margin-left: 0;
+    overflow: hidden !important;
+  }
+
+  .carousel-shell .section__inner {
+    max-width: none;
+    width: 100%;
+    padding: 0;
+  }
+
   .advisor-card {
     min-height: auto;
-    padding: 34px 28px;
+    padding: 24px 20px;
+    border-radius: 26px;
+  }
+
+  .advisor-photo {
+    width: 100%;
+    max-width: 240px;
+    height: 280px;
+    border-radius: 22px;
+    margin-bottom: 24px;
+  }
+
+  .advisor-card h3 {
+    font-size: clamp(2rem, 9vw, 3rem);
+    line-height: 0.95;
+    text-align: center;
   }
 
   .advisor-card p {
-    font-size: 18px;
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.55;
+    text-align: center;
+  }
+
+  #advisor-slider .keen-slider__slide {
+    opacity: 1;
+    transform: none;
+  }
+
+  #advisor-slider .keen-slider__slide.is-active {
+    transform: none;
+  }
+
+  .advisor-card:hover,
+  .advisor-card:hover .advisor-photo {
+    transform: none;
   }
 }
