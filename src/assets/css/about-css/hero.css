@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   min-height: calc(100vh - 80px);
   display: flex;
   align-items: center;
@@ -19,9 +19,9 @@
 }
 
 .hero__body {
-  width: min(1200px, 100%);
+  width: min(1200px, calc(100% - 48px));
   margin: 0 auto;
-  padding: 0 72px 120px;
+  padding: 0 0 120px;
   box-sizing: border-box;
   position: relative;
   z-index: 2;
@@ -185,6 +185,7 @@
   }
 
   .hero__body {
+    width: 100%;
     padding: 0;
   }
 
@@ -220,7 +221,6 @@
 
   .hero__line {
     margin-bottom: 18px;
-    min-height: auto;
     min-height: 2em;
   }
 
