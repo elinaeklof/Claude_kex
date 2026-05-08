@@ -1,18 +1,19 @@
- .duo-input-section__inner {
-  display: grid;
-  gap: clamp(1rem, 3vw, 2.5rem);
+.duo-input-section {
   width: 100%;
-  perspective: 450px;
-  display: grid;
-  gap: clamp(1rem, 3vw, 2.5rem);
-  width: 100%;
-  perspective: 450px;
+  padding: clamp(4rem, 8vw, 7rem) 0;
 }
 
+.duo-input-section__inner {
+  width: min(100% - 2rem, 1200px);
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  perspective: 450px;
+}
 .duo-input-section__title{
 font-family: "Oswald", "Open Sans", Arial, sans-serif;
   font-weight: 700;
-  font-size: clamp(3.8rem, 7.3vw, 7.5rem);
+  font-size: clamp(3.4rem, 6vw, 6rem);
   line-height: 1.1;
   letter-spacing: 0;
   text-transform: uppercase;
