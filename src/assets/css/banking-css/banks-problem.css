@@ -1,13 +1,5 @@
 .bank-problem {
   font-family: 'Oswald', sans-serif;
-}
-
-.bank-problem__inner {
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-.bank-problem {
   padding: 110px 24px;
   background: var(--bg-light, #f7f3f0);
 }
@@ -18,6 +10,8 @@
   background: rgba(255,255,255,.78);
   border: 1px solid rgba(23,23,23,.08);
   box-shadow: 0 30px 90px rgba(23,23,23,.08);
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .bank-section-copy {

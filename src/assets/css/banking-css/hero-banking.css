@@ -1,8 +1,5 @@
 .bank-hero {
-  font-family: 'Oswald', sans-serif;
-}
-
-.bank-hero {
+font-family: 'Oswald', sans-serif;
   padding: clamp(110px, 12vw, 170px) 24px;
   background:
     radial-gradient(circle at 82% 12%, rgba(255,133,111,.18), transparent 34%),
@@ -90,14 +87,8 @@
 
 @media (max-width: 900px) {
   .bank-card-grid,
-  .bank-feature-grid {
-    grid-template-columns: 1fr;
-  }
 
   .bank-card,
-  .bank-feature {
-    min-height: auto;
-  }
 
   .bank-hero {
     padding: 76px 20px;
