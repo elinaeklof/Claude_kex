@@ -18,10 +18,10 @@
   align-items: start;
 }
 
-/* LEFT */
 
 .bank-crm-copy h2 {
   margin: 0;
+  font-family: "Oswald", sans-serif;
   max-width: 760px;
   font-size: clamp(48px, 5vw, 84px);
   line-height: 0.92;
@@ -38,7 +38,6 @@
   color: var(--muted);
 }
 
-/* RIGHT */
 
 .bank-crm-points {
   display: grid;

@@ -1,18 +1,27 @@
-/* ── Carousel wrapper ───────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
 .carousel-shell {
   perspective: 1100px;
   margin-top: 40px;
   overflow: visible;
 }
 
+.carousel-shell > .section__title__advisory {
+  width: min(1200px, calc(100% - 48px));
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .section__title__advisory {
   font-family: "Oswald", sans-serif;
+  margin: 20px 0;
   font-weight: 700;
   font-size: clamp(3.8rem, 7.3vw, 7.5rem);
   line-height: 0.95;
   color: var(--text-dark);
   align-items: center;
-  margin-left: 170px;
   text-transform: uppercase;
 }
 .advisor-eyebrow{
@@ -25,8 +34,6 @@
   margin-left: 170px;
 }
 
-
-/* ── Slider ───────────────────────── */
 #advisory,
 #advisory .section__inner,
 .carousel-shell,
@@ -34,7 +41,7 @@
   overflow: visible !important;
 }
 
-/* Gör att slidern får sticka ut utanför layouten */
+
 #advisor-slider {
   overflow: visible !important;
   width: 100vw;
@@ -42,7 +49,6 @@
   margin-left: calc(50% - 50vw); /* centrerar full width */
 }
 
-/* ── Cards ───────────────────────── */
 .advisor-carousel {
   display: block;
 }
@@ -59,13 +65,13 @@
   align-items: center;
 }
 
-/* Hover effect */
+
 .advisor-card:hover {
   transform: translateY(-8px) rotateY(6deg);
   box-shadow: 0 30px 80px rgba(224,106,80,.18);
 }
 
-/* Glass look */
+
 .glass-card {
   border-radius: 34px;
   background: rgba(255,255,255,0.82);
@@ -74,7 +80,7 @@
   backdrop-filter: blur(12px);
 }
 
-/* ── Images ───────────────────────── */
+
 .advisor-photo {
   width: 220px;
   height: 280px;
@@ -91,13 +97,13 @@
   transform: scale(1.05);
 }
 
-/* Custom crop per person */
+
 .advisor-photo--alex   { object-position: center 18%; }
 .advisor-photo--johan  { object-position: center 12%; }
 .advisor-photo--yvonne { object-position: center 15%; }
 .advisor-photo--stefano{ object-position: center 20%; }
 
-/* ── Typography ───────────────────────── */
+
 .advisor-card h3 {
   margin: 0;
   font-size: 26px;
@@ -116,9 +122,7 @@
   font-family: "Open Sans", Arial, sans-serif;
 }
 
-/* ── Slider states ───────────────────────── */
 
-/* Alla slides */
 #advisor-slider .keen-slider__slide {
   cursor: pointer;
   opacity: 0.45;
@@ -127,19 +131,19 @@
   z-index: 1;
 }
 
-/* Aktiv slide (mitten) */
+
 #advisor-slider .keen-slider__slide.is-active {
   opacity: 1;
   transform: scale(1);
   z-index: 5;
 }
 
-/* Extra: slides till höger/ vänster känns “bak” */
+
 #advisor-slider .keen-slider__slide:not(.is-active) {
   pointer-events: auto;
 }
 
-/* ── Mobile ───────────────────────── */
+
 @media (max-width: 700px) {
   .carousel-shell {
     margin-top: 28px;

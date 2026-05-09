@@ -24,6 +24,7 @@
   font-weight: 900;
   letter-spacing: -0.07em;
   color: var(--navy, #081833);
+  font-family: 'Oswald', sans-serif;
 }
 
 .metric__label {
@@ -69,6 +70,12 @@
   border-radius: 24px;
   border: 1px solid rgba(8, 24, 51, 0.06);
   pointer-events: none;
+}
+
+.recognition-main .section__title {
+  font-size: clamp(38px, 4.8vw, 72px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
 }
 
 .awards-panel__label {
@@ -122,13 +129,83 @@
   .proof-block {
     grid-template-columns: 1fr;
     gap: 28px;
+    margin-top: 36px;
   }
 
   .metric {
-    max-width: 360px;
+    max-width: 100%;
+  }
+
+  .metric__number {
+    font-size: clamp(64px, 16vw, 92px);
+  }
+
+  .proof-text {
+    margin-top: 0;
+    font-size: 17px;
+    line-height: 1.6;
   }
 
   .awards-row {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .recognition-main .section__title {
+    font-size: clamp(38px, 12vw, 56px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+
+  .proof-block {
+    margin-top: 32px;
+    gap: 24px;
+  }
+
+  .metric__line {
+    margin-bottom: 20px;
+  }
+
+  .metric__number {
+    font-size: clamp(58px, 20vw, 76px);
+  }
+
+  .metric__label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+  }
+
+  .proof-text {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .awards-panel--horizontal {
+    margin-top: 34px;
+    padding: 22px;
+    border-radius: 26px;
+  }
+
+  .awards-panel--horizontal::before {
+    inset: 10px;
+    border-radius: 20px;
+  }
+
+  .awards-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .award-pill {
+    min-height: auto;
+    padding: 15px 16px;
+    border-radius: 18px;
+    font-size: 14px;
+  }
+
+  .award-pill__icon {
+    width: 28px;
+    height: 28px;
   }
 }

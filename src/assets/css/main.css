@@ -20,8 +20,7 @@
 html { 
   scroll-behavior: smooth; 
 }
-body {
-  font-family: "Open Sans", Arial, sans-serif;  
+body { 
   background: var(--bg-light);
   color: var(--text-dark);
   line-height: 1.55;
@@ -37,6 +36,23 @@ a {
   color: inherit; 
 }
 
+h1, h2, h3, h4, h5, h6 { 
+  margin: 0; 
+  font-weight: 700; 
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 0.95;
+}
+
+p { 
+  margin: 0; 
+  font-family: "Open Sans", Arial, sans-serif; 
+  color: var(--text-body);
+  font-size: 1.22rem;
+  line-height: 1.70;
+  }
+
 .section { 
   padding: 72px 48px; 
 }
@@ -51,10 +67,11 @@ a {
 }
 
 .section__inner { 
-  max-width: 960px; 
-  margin: 0 auto; 
+  width: min(1200px, calc(100% - 48px));
+  max-width: 1200px;
+  margin-inline: auto;
 }
-.section__inner--narrow { 
+.section__inner--narrow {  
   max-width: 720px; 
   margin: 0 auto; 
 }
@@ -68,14 +85,12 @@ a {
   margin-bottom: 10px;
 }
 .section__title {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  font-size: 38px;
-  color: var(--text-dark);
+  margin: 0; 
+  font-weight: 700; 
+  font-family: "Oswald", sans-serif;
   text-transform: uppercase;
-  line-height: 1.0;
-  letter-spacing: 0.5px;
-  margin-bottom: 14px;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 0.95;
 }
 .section__title--light { 
   color: var(--white); 
@@ -91,12 +106,6 @@ a {
   color: rgba(255,255,255,0.5); 
 }
 
-.duo-input-section__title,
-.product-hero h2,
-.hardware-panel h3 {
-  font-family: "Oswald", sans-serif;
-  font-weight: 700;
-}
 
 @media (max-width: 768px) {
   .section { padding: 52px 20px; }

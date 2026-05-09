@@ -44,7 +44,6 @@
   max-width: 680px;
   margin-top: 34px;
   display: grid;
-  gap: 18px;
 }
 
 .ai-fraud__body p {
@@ -53,6 +52,8 @@
   font-size: clamp(17px, 1.3vw, 20px);
   line-height: 1.68;
   letter-spacing: -0.012em;
+  margin-left: 4px;
+  margin-bottom: 20px;
 }
 
 .ai-fraud__panel {

@@ -10,15 +10,8 @@
 
   <meta name="description" content="ID24 offers a broad portfolio of software for improving form-filling and customer interactions — built around our patented Duo Input technology. For banks, retail chains and hotels. No system changes required.">
   <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="stylesheet" href="/assets/css/header.css">
 
-  <link rel="stylesheet" href="/assets/css/duo-input-section.css">
-  <link rel="stylesheet" href="/assets/css/faq-section.css">
-  <link rel="stylesheet" href="/assets/css/footer.css">
-  <link rel="stylesheet" href="/assets/css/hardware-bank.css">
-  <link rel="stylesheet" href="/assets/css/market-tabs.css">
-  <link rel="stylesheet" href="/assets/css/stat-bar.css">
-
+  <link rel="stylesheet" href="/assets/css/about-css/header.css">
   <link rel="stylesheet" href="/assets/css/about-css/hero.css">
   <link rel="stylesheet" href="/assets/css/about-css/duo-input-section.css">
   <link rel="stylesheet" href="/assets/css/about-css/hardware-both.css">
@@ -42,8 +35,6 @@
   <link rel="stylesheet" href="/assets/css/retail-css/cta.css">
   <link rel="stylesheet" href="/assets/css/retail-css/brand-section.css">
   <link rel="stylesheet" href="/assets/css/retail-css/fraud-section.css">
-  
-  <link rel="stylesheet" href="/assets/css/hardware-retail/hotel.css">
 
   <link rel="stylesheet" href="/assets/css/banking-css/hero-banking.css">
   <link rel="stylesheet" href="/assets/css/banking-css/banks-problem.css">
@@ -69,23 +60,19 @@
   <ul class="nav__links" id="nav-links" role="list">
     <li><a href="/banking/">Banks</a></li>
     <li><a href="/retail/">Retail / Hotel</a></li>
-    <li><a href="#hardware">Hardware</a></li>
+    <li><a href="/dual-input/#hardware">Hardware</a></li>
     <li><a href="/dual-input/">About</a></li>
     <li><a href="#pilot" class="nav__cta">Start a Pilot</a></li>
   </ul>
-  <button
-    class="nav__hamburger"
-    id="nav-toggle"
-    aria-label="Toggle navigation"
-    aria-expanded="false"
-    aria-controls="nav-links"
-  >
-    <span></span><span></span><span></span>
-  </button>
+  <button class="nav__hamburger" type="button" aria-label="Open menu" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 </nav>
 
 <section class="bank-hero">
-  <div class="bank-hero__inner">
+  <div class="section__inner">
     <p class="bank-eyebrow">Customer-facing banking technology</p>
 
     <h1 class="bank-hero__title">
@@ -112,7 +99,7 @@
   </div>
 </section>
 <section class="bank-problem" id="problem-banks">
-  <div class="bank-problem__inner">
+  <div class="section__inner">
     <div class="bank-section-copy">
       <p class="bank-eyebrow">The problem</p>
 
@@ -158,7 +145,7 @@
   </div>
 </section>
 <section class="bank-solution">
-  <div class="bank-solution__inner">
+  <div class="section__inner">
 
     <div class="bank-section-copy">
       <p class="bank-eyebrow">The solution</p>
@@ -175,7 +162,6 @@
       </p>
     </div>
 
-    <!-- 3 STEP ROW -->
     <div class="bank-solution-steps">
       <div class="bank-solution-step">
         <span>01</span>
@@ -195,7 +181,7 @@
   </div>
 </section>
 <section class="bank-outcomes">
-  <div class="bank-outcomes__inner">
+  <div class="section__inner">
 
     <div class="bank-section-copy">
       <p class="bank-eyebrow">Why it matters</p>
@@ -250,11 +236,10 @@
   </div>
 </section>
 <section class="bank-crm">
-  <div class="bank-crm__inner">
+  <div class="section__inner">
 
     <div class="bank-crm-grid">
 
-      <!-- LEFT COPY -->
       <div class="bank-crm-copy">
         <p class="bank-eyebrow">CRM value</p>
 
@@ -275,7 +260,6 @@
         </p>
       </div>
 
-      <!-- RIGHT VALUE POINTS -->
       <div class="bank-crm-points">
 
         <div class="bank-crm-point">
@@ -309,7 +293,7 @@
   </div>
 </section>
 <section class="capabilities-section" id="banking-solution">
-  <div class="capabilities-section__inner">
+  <div class="section__inner">
     <div class="capabilities-copy">
       <p class="capabilities-eyebrow">Product capabilities</p>
       <h2>Four capability areas. One customer-facing platform.</h2>
@@ -368,7 +352,7 @@
   </div>
 </section>
 <section class="fraud-spotlight">
-  <div class="fraud-spotlight__inner">
+  <div class="section__inner">
     <div class="fraud-copy">
       <p class="fraud-eyebrow">Fraud spotlight</p>
 
@@ -392,7 +376,7 @@
   </div>
 </section>
 <section class="bank-hardware-section">
-  <div class="bank-hardware-section__inner">
+  <div class="section__inner">
     <div class="bank-hardware-copy">
       <p class="bank-hardware-eyebrow">Hardware & deployment</p>
 
@@ -424,7 +408,7 @@
   </div>
 </section>
 <section class="bank-pilot-section" id="pilot">
-  <div class="bank-pilot-section__inner">
+  <div class="section__inner">
     <div class="bank-pilot-copy">
       <p class="bank-pilot-eyebrow">Pilot</p>
 
@@ -461,7 +445,7 @@
   </div>
 </section>
 <section class="bank-proof-section">
-  <div class="bank-proof-section__inner">
+  <div class="section__inner">
     <p class="bank-proof-eyebrow">Proof</p>
 
     <div class="bank-proof-grid">
@@ -548,6 +532,12 @@
 <script src="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.js"></script>
 <script src="/assets/js/advisor-slider.js"></script>
 <script type="module" src="/assets/js/main.js"></script>
+<script type="module" src="/assets/js/product_3D.js"></script>
+<script type="module" src="/assets/js/duo-input.js"></script>
+<script type="module" src="/assets/js/header.js"></script>
+<script type="module" src="/assets/js/product-section.js"></script>
+<script type="module" src="/assets/js/ocean.js"></script>
+<script type="module" src="/assets/js/hero_typeWriter.js"></script>
 </body>
 </html>
 

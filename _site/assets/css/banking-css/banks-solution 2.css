@@ -39,55 +39,17 @@
 }
 
 
+/* RESPONSIVE */
+
 @media (max-width: 900px) {
-  .bank-solution {
+  .bank-card-grid,
+
+  .bank-card,
+  .bank-feature {
+    min-height: auto;
+  }
+
+  .bank-solution{
     padding: 76px 20px;
-  }
-
-  .bank-solution-steps {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    margin: 36px 0 0;
-  }
-
-  .bank-solution-step {
-    text-align: left;
-    padding: 24px;
-    border-radius: 22px;
-  }
-
-  .bank-solution-step span {
-    font-size: 34px;
-    margin-bottom: 14px;
-  }
-
-  .bank-solution-step h4 {
-    font-size: 24px;
-    line-height: 1.05;
-  }
-}
-
-@media (max-width: 520px) {
-  .bank-solution {
-    padding: 64px 20px;
-  }
-
-  .bank-section-copy h2 {
-    font-size: clamp(38px, 12vw, 56px);
-    line-height: 0.95;
-  }
-
-  .bank-section-copy p {
-    font-size: 16px;
-    line-height: 1.6;
-  }
-
-  .bank-eyebrow {
-    font-size: 12px;
-    letter-spacing: 0.14em;
-  }
-
-  .bank-solution-step {
-    padding: 22px 20px;
   }
 }

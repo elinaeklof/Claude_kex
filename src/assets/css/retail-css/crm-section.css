@@ -1,4 +1,4 @@
-/* PREMIUM CRM SECTION */
+
 .crm-section {
   padding: clamp(80px, 10vw, 150px) 48px;
   background:
@@ -32,6 +32,7 @@
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
 }
 
 .crm-section__title {
@@ -51,8 +52,10 @@
 }
 
 .crm-section__body p {
+  font-size: 1.22rem;
+  line-height: 1.70;
+  font-family: "Open Sans", Arial, sans-serif;
   margin: 0;
-  font-size: clamp(17px, 1.2vw, 20px);
   line-height: 1.7;
   color: var(--text-body);
   letter-spacing: -0.012em;

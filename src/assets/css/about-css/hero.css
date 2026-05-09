@@ -10,6 +10,7 @@
   align-items: center;
   background: #eeeeee;
   padding: 8vh 0 6vh;
+  padding-top: calc(85px + 8vh);
   border-radius: 0 0 45px 45px;
 }
 
@@ -78,8 +79,8 @@
 
 .hero__bottom {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
   align-items: center;
 }
 
@@ -92,10 +93,10 @@
 
 .hero__desc {
   font-size: 1.22rem;
-  line-height: 1.58;
+  line-height: 1.70;
   font-family: "Open Sans", Arial, sans-serif;
   margin-top: 34px;
-  max-width: 620px;
+  max-width: 500px;
   color: var(--text-body);
 }
 
@@ -204,6 +205,7 @@
 
   .hero__desc {
     font-size: 18px;
+    max-width: 640px;
   }
 
   .hero__image {

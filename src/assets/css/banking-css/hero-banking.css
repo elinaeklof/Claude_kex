@@ -7,8 +7,9 @@ font-family: 'Oswald', sans-serif;
 }
 
 .bank-hero__inner  {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: min(1200px, calc(100% - 48px));
+  max-width: 1200px;
+  margin-inline: auto;
 }
 
 .bank-eyebrow {

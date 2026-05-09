@@ -10,15 +10,8 @@
 
   <meta name="description" content="ID24 offers a broad portfolio of software for improving form-filling and customer interactions — built around our patented Duo Input technology. For banks, retail chains and hotels. No system changes required.">
   <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="stylesheet" href="/assets/css/header.css">
 
-  <link rel="stylesheet" href="/assets/css/duo-input-section.css">
-  <link rel="stylesheet" href="/assets/css/faq-section.css">
-  <link rel="stylesheet" href="/assets/css/footer.css">
-  <link rel="stylesheet" href="/assets/css/hardware-bank.css">
-  <link rel="stylesheet" href="/assets/css/market-tabs.css">
-  <link rel="stylesheet" href="/assets/css/stat-bar.css">
-
+  <link rel="stylesheet" href="/assets/css/about-css/header.css">
   <link rel="stylesheet" href="/assets/css/about-css/hero.css">
   <link rel="stylesheet" href="/assets/css/about-css/duo-input-section.css">
   <link rel="stylesheet" href="/assets/css/about-css/hardware-both.css">
@@ -42,8 +35,6 @@
   <link rel="stylesheet" href="/assets/css/retail-css/cta.css">
   <link rel="stylesheet" href="/assets/css/retail-css/brand-section.css">
   <link rel="stylesheet" href="/assets/css/retail-css/fraud-section.css">
-  
-  <link rel="stylesheet" href="/assets/css/hardware-retail/hotel.css">
 
   <link rel="stylesheet" href="/assets/css/banking-css/hero-banking.css">
   <link rel="stylesheet" href="/assets/css/banking-css/banks-problem.css">
@@ -70,19 +61,15 @@
   <ul class="nav__links" id="nav-links" role="list">
     <li><a href="/banking/">Banks</a></li>
     <li><a href="/retail/">Retail / Hotel</a></li>
-    <li><a href="#hardware">Hardware</a></li>
+    <li><a href="/dual-input/#hardware">Hardware</a></li>
     <li><a href="/dual-input/">About</a></li>
     <li><a href="#pilot" class="nav__cta">Start a Pilot</a></li>
   </ul>
-  <button
-    class="nav__hamburger"
-    id="nav-toggle"
-    aria-label="Toggle navigation"
-    aria-expanded="false"
-    aria-controls="nav-links"
-  >
-    <span></span><span></span><span></span>
-  </button>
+  <button class="nav__hamburger" type="button" aria-label="Open menu" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 </nav>
 
 <section class="section hero" aria-label="Hero">
@@ -124,37 +111,6 @@
   }
 }
 </script>
-
-<script>
-(function() {
-  var el = document.getElementById('hero-typewriter');
-  if (!el) return;
-  var part1 = 'A CUSTOMER TOUCH POINT HAS 2 SIDES.\nFINALLY, ';
-  var part2 = 'BOTH OF THEM WORK.';
-  var full = part1 + part2;
-  var i = 0;
-  var speed = 32;
-
-  // Lock the height before we start by measuring the placeholder
-  var ph = el.querySelector('.hero__placeholder');
-  if (ph) {
-    var h = el.offsetHeight;
-    el.style.minHeight = h + 'px';
-    el.innerHTML = ''; // clear placeholder, start typing
-  }
-
-  function tick() {
-    i++;
-    var typed = full.slice(0, i);
-    var p1 = typed.slice(0, Math.min(i, part1.length)).replace('\n', '<br>');
-    var p2 = typed.length > part1.length ? typed.slice(part1.length) : '';
-    el.innerHTML = p1 + (p2 ? '<span class="hero__gradient">' + p2 + '</span>' : '');
-    if (i < full.length) setTimeout(tick, speed);
-  }
-  setTimeout(tick, 50);
-})();
-</script>
-<script type="module" src="/assets/js/ocean.js"></script>
 </section>
 
 
@@ -275,7 +231,7 @@
   </div>
 </section>
 
-<script type="module" src="/assets/js/main.js"></script>
+<script type="module" src="/assets/js/product_3D.js"></script>
 <section class="use-cases">
   <div class="use-cases__inner">
     <div class="use-cases__grid">
@@ -373,7 +329,7 @@
 </section>
 <div class="carousel-shell">
   <div class ="advisor-eyebrow">Advisory board</div>
-  <h2 class="section__title__advisory">The people we check our <br> thinking with.</h2>
+  <h2 class="section__title__advisory">The people we check our thinking with.</h2>
   <div class="section__inner">
   <div id="advisor-slider" class="keen-slider">
     <article class="keen-slider__slide advisor-card glass-card">
@@ -451,6 +407,12 @@
 <script src="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.js"></script>
 <script src="/assets/js/advisor-slider.js"></script>
 <script type="module" src="/assets/js/main.js"></script>
+<script type="module" src="/assets/js/product_3D.js"></script>
+<script type="module" src="/assets/js/duo-input.js"></script>
+<script type="module" src="/assets/js/header.js"></script>
+<script type="module" src="/assets/js/product-section.js"></script>
+<script type="module" src="/assets/js/ocean.js"></script>
+<script type="module" src="/assets/js/hero_typeWriter.js"></script>
 </body>
 </html>
 
